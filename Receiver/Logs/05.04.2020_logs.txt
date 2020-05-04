@@ -1,0 +1,210 @@
+Status packet was received in Big endian (16 words )	18:16:49
+Processing time: 0 ms
+Control packet was received in Little endian (6 words )	18:16:57
+1 transactions processed: 
+Write transactions: 1
+Error transactions: 1
+Processing time: 0 ms
+****_____ERRORS_____****
+->Bad transaction headerControl packet was received in Little endian (1 words )	18:17:44
+Processing time: 0 ms
+Control packet was received in Little endian (3 words )	18:17:59
+1 transactions processed: 
+Write transactions: 1
+Processing time: 0 ms
+Control packet was received in Little endian (1 words )	18:18:48
+Processing time: 1 ms
+Control packet was received in Little endian (3 words )	18:18:52
+1 transactions processed: 
+Write transactions: 1
+Processing time: 0 ms
+Control packet was received in Little endian (6 words )	18:19:26
+1 transactions processed: 
+Write transactions: 1
+Processing time: 1 ms
+ReSend packet was received in Big endian (1 words )	18:20:25
+Processing time: 0 ms
+Status packet was received in Big endian (16 words )	18:31:23
+Processing time: 0 ms
+Control packet was received in Little endian (5 words )	18:31:37
+2 transactions processed: 
+Read transactions: 2
+Error transactions: 1
+Processing time: 0 ms
+****_____ERRORS_____****
+-> Exceeding response sizeStatus packet was received in Big endian (16 words )	18:31:51
+Processing time: 0 ms
+Status packet was received in Big endian (16 words )	20:11:54
+Processing time: 0 ms
+________________________________________________________________________________________________
+Status packet was received in Big endian (16 words )	20:16:54
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:17:03
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:17:03
+Processing time: 1 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:17:26
+Processing time: 1 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:17:26
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:17:34
+Processing time: 1 ms
+_____________________________________________________
+Control packet was received in Little endian (3 words )	20:17:34
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:17:40
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:17:40
+Processing time: 1 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:17:42
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:17:42
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:17:43
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:17:43
+Processing time: 1 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:17:46
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:17:49
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:17:49
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:17:50
+Processing time: 1 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:17:50
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:17:51
+Processing time: 1 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:17:52
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:17:53
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:17:54
+Processing time: 1 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:18:14
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (258 words )	20:18:24
+241 transactions processed: 
+Processing time: 0 ms
+****_____ERRORS_____****
+->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header->Bad transaction Header_____________________________________________________
+Control packet was received in Little endian (4 words )	20:19:59
+1 transactions processed: 
+Write transactions: 1
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (1 words )	20:20:06
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (3 words )	20:20:13
+1 transactions processed: 
+Read transactions: 1
+Processing time: 1 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:21:01
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:21:03
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:21:03
+1 transactions processed: 
+Write transactions: 1
+Error transactions: 1
+Processing time: 0 ms
+****_____ERRORS_____****
+-> Attempt to write to the FIFO register with nonIncrementing Write transaction_____________________________________________________
+Status packet was received in Big endian (16 words )	20:27:24
+Processing time: 1 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:27:31
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:27:31
+1 transactions processed: 
+Write transactions: 1
+Error transactions: 1
+Processing time: 1 ms
+****_____ERRORS_____****
+[0]-> Attempt to write to the FIFO register with nonIncrementing Write transaction
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:27:43
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:27:43
+1 transactions processed: 
+Write transactions: 1
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:28:20
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (3 words )	20:28:20
+1 transactions processed: 
+Read transactions: 1
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:28:43
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (3 words )	20:28:43
+1 transactions processed: 
+Read transactions: 1
+Processing time: 1 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:28:48
+Processing time: 0 ms
+_____________________________________________________
+Control packet was received in Little endian (27 words )	20:28:48
+1 transactions processed: 
+Write transactions: 1
+Processing time: 0 ms
+_____________________________________________________
+Status packet was received in Big endian (16 words )	20:29:07
+Processing time: 1 ms
+_____________________________________________________
+Control packet was received in Little endian (6 words )	20:29:13
+1 transactions processed: 
+Processing time: 1 ms
+****_____ERRORS_____****
+[7b]->Bad transaction Header
+_____________________________________________________
+Control packet was received in Little endian (6 words )	20:29:27
+1 transactions processed: 
+Write transactions: 1
+Error transactions: 1
+Processing time: 0 ms
+****_____ERRORS_____****
+[7b]->Bad transaction header
+_____________________________________________________
+Control packet was received in Little endian (6 words )	20:31:37
+1 transactions processed: 
+Write transactions: 1
+Error transactions: 1
+Processing time: 0 ms
+****_____ERRORS_____****
+[7B]->Bad transaction header
+_____________________________________________________

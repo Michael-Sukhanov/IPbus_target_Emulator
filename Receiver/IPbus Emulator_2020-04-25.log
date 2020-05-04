@@ -1,0 +1,80 @@
+---------------------------------------------------------------
+<23:13:28> Status packet  ( 16 words BE)
+---------------------------------------------------------------
+<23:13:28> Control packet ( 18 words LE)
+writing  0x00003036 to 0x00001000 (succesive)
+writing  0x000001B3 to 0x00001001 (succesive)
+writing  0x0000855F to 0x00001002 (succesive)
+writing  0x0000855F to 0x00001003 (succesive)
+writing  0x000010E3 to 0x00001004 (succesive)
+writing  0x000001D0 to 0x00001005 (succesive)
+writing  0x00001DE5 to 0x00001006 (succesive)
+writing  0x000001C8 to 0x00001007 (succesive)
+writing  0x000A01C8 to 0x00001008 (succesive)
+writing  0xBBBBAAAA to 0x00001009 (succesive)
+writing  0x01C2CCCC to 0x0000100A (succesive)
+writing  0x000F00F0 to 0x0000100B (succesive)
+writing  0x001103F8 to 0x0000100C (succesive)
+writing  0xAAFD9B99 to 0x0000100D (succesive)
+writing  0x0000008F to 0x0000100E (succesive)
+---------------------------------------------------------------
+<23:13:41> Status packet  ( 16 words BE)
+---------------------------------------------------------------
+<23:13:41> Control packet (  3 words LE)
+reading   7 words from 0x00000000 (successive)
+---------------------------------------------------------------
+<23:13:57> Status packet  ( 16 words BE)
+---------------------------------------------------------------
+<23:13:57> Control packet ( 15 words LE)
+writing  0x01C2CCCC to 0x0000100A (succesive)
+writing  0x000F00F0 to 0x0000100B (succesive)
+writing  0x001103F8 to 0x0000100C (succesive)
+writing  0xAAFD9B99 to 0x0000100D (succesive)
+writing  0x0000008F to 0x0000100E (succesive)
+writing  0x00000000 to 0x0000100F (succesive)
+writing  0x00000000 to 0x00001010 (succesive)
+writing  0x000001C8 to 0x00001011 (succesive)
+writing  0x000A01C8 to 0x00001012 (succesive)
+writing  0xBBBBAAAA to 0x00001013 (succesive)
+writing  0x01C2CCCC to read-only 0x00001014: forbidden
+---------------------------------------------------------------
+<23:14:37> Status packet  ( 16 words BE)
+---------------------------------------------------------------
+<23:14:37> Control packet (  3 words LE)
+reading   7 words from 0x00000000 (non-incrementing)
+---------------------------------------------------------------
+<23:15:11> Control packet (  3 words BE)
+reading   1 words from 0x00000000 (successive)
+---------------------------------------------------------------
+<23:15:28> Control packet (  5 words BE)
+reading 255 words from 0x0000100A (successive)
+reading 255 words from 0x0000100A: is impossible (too many words)
+---------------------------------------------------------------
+<23:16:05> Status packet  ( 16 words BE)
+---------------------------------------------------------------
+<23:23:08> Status packet  ( 16 words BE)
+---------------------------------------------------------------
+<23:23:23> Status packet  ( 16 words BE)
+---------------------------------------------------------------
+<23:23:23> Control packet ( 19 words LE)
+writing  0x01C2007B to 0x00001014 (non-incrementing)
+writing  0x01C2CBA0 to 0x00001014 (non-incrementing)
+writing  0x01C2CDA8 to 0x00001014 (non-incrementing)
+writing  0x01C2D0D0 to 0x00001014 (non-incrementing)
+writing  0x01C21A84 to 0x00001014 (non-incrementing)
+writing  0x01C20314 to 0x00001014 (non-incrementing)
+writing  0x01C2DDD4 to 0x00001014 (non-incrementing)
+writing  0x000001C8 to 0x00001014 (non-incrementing)
+writing  0x000A01C8 to 0x00001014 (non-incrementing)
+writing  0xBBBBAAAA to 0x00001014 (non-incrementing)
+writing  0x01C2CCCC to 0x00001014 (non-incrementing)
+writing  0x000F00F0 to 0x00001014 (non-incrementing)
+writing  0x001103F8 to 0x00001014 (non-incrementing)
+writing  0xAAFD9B99 to 0x00001014 (non-incrementing)
+writing  0x0000008F to 0x00001014 (non-incrementing)
+writing  0x07FF0000 to 0x00001014 (non-incrementing)
+---------------------------------------------------------------
+<23:23:33> Status packet  ( 16 words BE)
+---------------------------------------------------------------
+<23:23:33> Control packet (  3 words LE)
+reading   7 words from 0x00001014 (non-incrementing)

@@ -1,0 +1,16 @@
+_____________________________________________________________
+Status packet was received in Big endian (16 words )	15:34:52
+Processing time: 0 ms
+_____________________________________________________________
+Control packet was received in Little endian (3 words )	15:34:52
+1 transactions processed: 
+Read transactions: 1
+Processing time: 0 ms
+_____________________________________________________________
+Status packet was received in Big endian (16 words )	15:35:04
+Processing time: 1 ms
+_____________________________________________________________
+Control packet was received in Little endian (3 words )	15:35:04
+1 transactions processed: 
+Read transactions: 1
+Processing time: 0 ms

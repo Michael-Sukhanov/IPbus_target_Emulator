@@ -1,0 +1,9 @@
+Status packet was received	21:04:21
+Processing time: 0ms
+Status packet was received	21:04:25
+Processing time: 0ms
+Control packet was received	21:04:26
+26 transactions processed: 
+Write transactions: 1
+Error transactions: 1
+Processing time: 1ms
