@@ -27,7 +27,8 @@ MainWindow::MainWindow(QWidget *parent)
             if(obj.ready())
                 socket->writeDatagram( obj.get_response(), obj.responseSize, senderAdress, senderPort);
             obj.Clear_response();
-            ui->textEdit_log->append(obj.GetLogMessage());
+            if(obj.GetLogMessage(ui->checkBox->isChecked()) != "")
+                ui->textEdit_log->append(obj.GetLogMessage(ui->checkBox->isChecked()));
         }
     });
     ui->label->setFont(QFont("Consolas", 8));
@@ -35,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton->setFont(QFont("Consolas", 8));
     ui->textEdit_log->setFont(QFont("Consolas", 8));
     ui->Adresses_textEdit->setFont(QFont("Consolas", 8));
+
 
 }
 
@@ -44,8 +46,10 @@ MainWindow::~MainWindow(){
 
 
 void MainWindow::on_pushButton_clicked(){
-    if(socket->bind(QHostAddress::AnyIPv4, 50001))
+    if(socket->bind(QHostAddress::AnyIPv4, 50001)){
         ui->pushButton->hide();
+        ui->statusbar->showMessage("Bind succesfull");
+    }
 }
 
 

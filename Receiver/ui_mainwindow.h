@@ -13,6 +13,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -32,13 +33,15 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QTextEdit *Adresses_textEdit;
-    QLabel *label;
     QTextEdit *textEdit_log;
     QPushButton *pushButton;
     QHBoxLayout *horizontalLayout;
     QLabel *label_5;
     QLineEdit *AdresslineEdit;
     QPushButton *pushButton_2;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label;
+    QCheckBox *checkBox;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -63,21 +66,6 @@ public:
         Adresses_textEdit->setReadOnly(true);
 
         gridLayout->addWidget(Adresses_textEdit, 2, 1, 1, 1);
-
-        label = new QLabel(centralwidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        QFont font;
-        font.setFamily(QString::fromUtf8("Droid Sans"));
-        font.setPointSize(8);
-        font.setBold(false);
-        font.setItalic(false);
-        font.setWeight(50);
-        label->setFont(font);
-        label->setStyleSheet(QString::fromUtf8(""));
-        label->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
-        label->setTextFormat(Qt::PlainText);
-
-        gridLayout->addWidget(label, 1, 0, 1, 1);
 
         textEdit_log = new QTextEdit(centralwidget);
         textEdit_log->setObjectName(QString::fromUtf8("textEdit_log"));
@@ -138,6 +126,32 @@ public:
 
         gridLayout->addLayout(horizontalLayout, 1, 1, 1, 1);
 
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        label = new QLabel(centralwidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Droid Sans"));
+        font.setPointSize(8);
+        font.setBold(false);
+        font.setItalic(false);
+        font.setWeight(50);
+        label->setFont(font);
+        label->setStyleSheet(QString::fromUtf8(""));
+        label->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
+        label->setTextFormat(Qt::PlainText);
+
+        horizontalLayout_2->addWidget(label);
+
+        checkBox = new QCheckBox(centralwidget);
+        checkBox->setObjectName(QString::fromUtf8("checkBox"));
+        checkBox->setEnabled(true);
+
+        horizontalLayout_2->addWidget(checkBox);
+
+
+        gridLayout->addLayout(horizontalLayout_2, 1, 0, 1, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -155,7 +169,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Current processes:", nullptr));
         textEdit_log->setStyleSheet(QString());
 #if QT_CONFIG(whatsthis)
         pushButton->setWhatsThis(QCoreApplication::translate("MainWindow", "<html><head/><body><p>Start to listen to the 500001 port</p></body></html>", nullptr));
@@ -165,6 +178,8 @@ public:
         AdresslineEdit->setInputMask(QCoreApplication::translate("MainWindow", ">HHHH", nullptr));
         AdresslineEdit->setText(QCoreApplication::translate("MainWindow", "0000", nullptr));
         pushButton_2->setText(QString());
+        label->setText(QCoreApplication::translate("MainWindow", "Current processes:", nullptr));
+        checkBox->setText(QCoreApplication::translate("MainWindow", "Write transactions only", nullptr));
     } // retranslateUi
 
 };
