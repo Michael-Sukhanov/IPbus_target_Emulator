@@ -52,13 +52,14 @@ public:
 
     QString GetLogMessage(bool write_only){
         int read_ind;
-        if(write_only && Packet_log_message.contains("Control"))
+        if(write_only && Packet_log_message.contains("Control") && Packet_log_message.count(':') < 3)
            Packet_log_message = Packet_log_message.contains("writing") ? Packet_log_message : "";
         if(write_only && Packet_log_message != ""){
             int strings_to_remove = Packet_log_message.count("reading");
             for(quint8 counter = 0; counter < strings_to_remove; ++counter){
                 read_ind = Packet_log_message.indexOf("reading");
-                Packet_log_message.remove(read_ind, Packet_log_message.indexOf('\n', read_ind) + 1 - read_ind);
+                if(!Packet_log_message.mid(read_ind, Packet_log_message.indexOf('\n', read_ind) + 1 - read_ind).contains(':'))
+                    Packet_log_message.remove(read_ind, Packet_log_message.indexOf('\n', read_ind) + 1 - read_ind);
             }
         }
 

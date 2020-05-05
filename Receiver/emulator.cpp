@@ -104,7 +104,7 @@ void Emulator::Prepare_response()
 
 void Emulator::Prepare_Header()
 {
-    qDebug()<<"Готовлю заголовок пакета";
+//    qDebug()<<"Готовлю заголовок пакета";
     // Заголовок пакета, по типу которого определяем что это за пакет
     PacketHeader request_pack_header = PacketHeader(request[0]);
     // Если заголовок соответствует типу протокола IPbus, то мы формируем заголовок ответного пакета
@@ -117,7 +117,7 @@ void Emulator::Prepare_Header()
         responseSize += Word_size;
         // Считываем запрос дальше
         counter = 1;
-    qDebug()<<"Заголовок пакета успешно создан";
+//    qDebug()<<"Заголовок пакета успешно создан";
     }
     else{
         //Заголовок пакета не соответствует протоколу, значит не готовы отправлять ответ
@@ -134,22 +134,22 @@ void Emulator::Prepare_Transaction_response()
     // Если заголовк соответствует правилам заголовка протокола IPbus
     if(trans_header.ProtocolVersion == 2 && trans_header.InfoCode == 0xf){
                 switch (trans_header.TypeID) {
-                case read:                 qDebug()<<"Обработка транзакции чтения";
+                case read:                 /*qDebug()<<"Обработка транзакции чтения";*/
                                            Read_transaction(trans_header);
                                            break;
-                case nonIncrementingRead:  qDebug()<<"Обработка транзакции FIFO  чтения";
+                case nonIncrementingRead:  /*qDebug()<<"Обработка транзакции FIFO  чтения";*/
                                            Non_Incrementing_read_transaction(trans_header);
                                            break;
-                case write:                qDebug()<<"Обработка транзакции записи";
+                case write:                /*qDebug()<<"Обработка транзакции записи";*/
                                            Write_transaction(trans_header);
                                            break;
-                case nonIncrementingWrite: qDebug()<<"Обработка транзакции FIFO записи";
+                case nonIncrementingWrite: /*qDebug()<<"Обработка транзакции FIFO записи";*/
                                            Non_Incrementing_write_transaction(trans_header);
                                            break;
-                case RMWsum:               qDebug()<<"Обработка транзакции побитового сложения";
+                case RMWsum:               /*qDebug()<<"Обработка транзакции побитового сложения";*/
                                            RMWsum_transaction(trans_header);
                                            break;
-                case RMWbits:              qDebug()<<"Обработка транзакции побитовых операций";
+                case RMWbits:              /*qDebug()<<"Обработка транзакции побитовых операций";*/
                                            RMWbits_transaction(trans_header);
                                            break;
                 case configurationRead:    trans_header.InfoCode = 0x0;
