@@ -3,9 +3,9 @@
 
 #include <QtNetwork/QUdpSocket>
 #include <IPbusHeaders.h>
+#include <board.h>
 #include <QDebug>
 #include <QQueue>
-#include <QHash>
 #include <QTime>
 #include <QDate>
 #include <qmath.h>
@@ -52,7 +52,7 @@ public:
 
     QString GetLogMessage(bool write_only){
         int read_ind;
-        if(write_only && Packet_log_message.contains("Control") && Packet_log_message.count(':') < 3)
+        if(write_only && ((Packet_log_message.contains("Control") && Packet_log_message.count(':') < 3) || Packet_log_message.contains("Status")))
            Packet_log_message = Packet_log_message.contains("writing") ? Packet_log_message : "";
         if(write_only && Packet_log_message != ""){
             int strings_to_remove = Packet_log_message.count("reading");
