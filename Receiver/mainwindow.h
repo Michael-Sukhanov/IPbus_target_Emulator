@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtWidgets>
 #include <emulator.h>
+#include <QShortcut>
 //#include <QMediaPlayer>
 //#include <QMediaPlaylist>
 
@@ -26,6 +27,10 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void load();
+
+    void on_pushButton_info_clicked();
+
 private:
     Ui::MainWindow *ui;
     QUdpSocket* socket;
@@ -33,6 +38,12 @@ private:
     quint16 senderPort;
     QHostAddress senderAdress;
     Emulator obj;
+    QShortcut *info = new QShortcut(this);
+    QShortcut *clear= new QShortcut(this);
+    QShortcut *exit = new QShortcut(this);
+    QShortcut *bind = new QShortcut(this);
+    QShortcut *w_log= new QShortcut(this);
+
 //    QMediaPlayer* notif;
 
 

@@ -37,6 +37,21 @@ MainWindow::MainWindow(QWidget *parent)
     ui->textEdit_log->setFont(QFont("Consolas", 8));
     ui->Adresses_textEdit->setFont(QFont("Consolas", 8));
 
+    QMenu *fileMenu = menuBar()->addMenu("&File");
+    fileMenu->addAction("&Load board configuration from...", this, SLOT(load()), QKeySequence::Open);
+
+    info ->setKey(Qt::CTRL + Qt::Key_I);
+    clear->setKey(Qt::CTRL + Qt::Key_E);
+    exit ->setKey(Qt::CTRL + Qt::Key_Q);
+    bind ->setKey(Qt::CTRL + Qt::Key_B);
+    w_log->setKey(Qt::CTRL + Qt::Key_W);
+
+    connect(info,  &QShortcut::activated, this, [=](){on_pushButton_info_clicked();});
+    connect(clear, &QShortcut::activated, this, [=](){on_pushButton_2_clicked();});
+    connect(exit,  &QShortcut::activated, this, [=](){QCoreApplication::exit();});
+    connect(bind,  &QShortcut::activated, this, [=](){on_pushButton_clicked();});
+    connect(w_log, &QShortcut::activated, this, [=](){ui->checkBox->setChecked(!ui->checkBox->isChecked());});
+
 
 }
 
@@ -62,3 +77,22 @@ void MainWindow::on_AdresslineEdit_editingFinished(){
 void MainWindow::on_pushButton_2_clicked(){
     ui->Adresses_textEdit->clear();
 }
+
+void MainWindow::load() {
+    QFileDialog dialog(this);
+    dialog.setWindowModality(Qt::WindowModal);
+    dialog.setAcceptMode(QFileDialog::AcceptOpen);
+    if (dialog.exec() != QDialog::Accepted || !obj.set_board(dialog.selectedFiles().first()))
+        statusBar()->showMessage("File not loaded");
+    else{
+        statusBar()->showMessage("File loaded", 2000);
+    }
+}
+
+
+void MainWindow::on_pushButton_info_clicked(){
+    bool ok;
+    ui->statusbar->showMessage("[0x0000" + ui->AdresslineEdit->text() + "]: register" + obj.board_info((ui->AdresslineEdit->text()).toUInt(&ok, 16)));
+}
+
+

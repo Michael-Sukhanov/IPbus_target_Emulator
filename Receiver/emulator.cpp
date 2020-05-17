@@ -184,9 +184,9 @@ void Emulator::Write_transaction(TransactionHeader th){
             th.Words = i;
             log("writing  impossible: Bad header");
         }else{
-            read_only = (request[counter + 1] + i == FIFO_adress);
-            adress_space[request[counter + 1] + i] = read_only ? adress_space[request[counter + 1] + i] : request[counter + 2 + i];
-            log("writing  " + Hex(request[counter + 2 + i]) + " to " + (read_only ? "read only " + Hex(request[counter + 1] + i) + ": forbidden" : Hex(request[counter + 1] + i)));
+            read_only = bd.read_only(request[counter + 1] + i);
+            bd.set_registers(adress_space, request[counter + 1] + i,  request[counter + 2 + i]);
+            log(bd.get_message());
             th.InfoCode = read_only ? 0x5 : 0x0;
             if(read_only){
                 th.Words = i;

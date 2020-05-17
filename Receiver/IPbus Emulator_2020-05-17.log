@@ -1,0 +1,210 @@
+<16:40:45> Status packet  ( 16 words BE)
+<16:42:06> Status packet  ( 16 words BE)
+<16:42:06> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x00000000: out of range, result:0xFFFFFB00
+writing 0x00000FF0 to 0x00000001: out of range, result:0x00000500
+writing 0x0000000A to 0x00000002: out of range, result:0x0000000A
+writing 0x00000DAD to 0x00000003
+writing 0x00ADAD00 to 0x00000004
+writing 0x00DAD000 to read only 0x00000005: forbidden
+<16:45:27> Status packet  ( 16 words BE)
+<16:45:27> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x00000000: out of range, result:0xFFFFFB00
+writing 0x00000FF0 to 0x00000001: out of range, result:0x00000500
+writing 0x0000000A to 0x00000002: out of range, result:0x0000000A
+writing 0x00000DAD to 0x00000003
+writing 0x00ADAD00 to 0x00000004
+writing 0x00DAD000 to read only 0x00000005: forbidden
+<16:54:17> Status packet  ( 16 words BE)
+<16:54:17> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x00000000: out of range, result:0xFFFFFB00
+writing 0x00000FF0 to 0x00000001: out of range, result:0x00000500
+writing 0x0000000A to 0x000000020x0000000A
+writing 0x00000DAD to 0x00000003
+writing 0x00ADAD00 to 0x00000004
+writing 0x00DAD000 to read only 0x00000005: forbidden
+<16:55:10> Status packet  ( 16 words BE)
+<16:55:10> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x00000000: out of range, result:0xFFFFFB00
+writing 0x00000FF0 to 0x00000001: out of range, result:0x00000500
+writing 0x0000000A to 0x00000002
+writing 0x00000DAD to 0x00000003
+writing 0x00ADAD00 to 0x00000004
+writing 0x00DAD000 to read only 0x00000005: forbidden
+<16:55:38> Status packet  ( 16 words BE)
+<16:55:38> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x00000006
+writing 0x00000FF0 to read only 0x00000007: forbidden
+<16:55:48> Status packet  ( 16 words BE)
+<16:55:48> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x00000008
+writing 0x00000FF0 to 0x00000009
+writing 0x0000000A to 0x0000000A
+writing 0x00000DAD to 0x0000000B
+writing 0x00ADAD00 to 0x0000000C
+writing 0x00DAD000 to 0x0000000D
+writing 0xADAD0000 to 0x0000000E
+writing 0xFFFFFFFF to 0x0000000F
+writing 0x00000D0B to read only 0x00000010: forbidden
+<16:56:41> Status packet  ( 16 words BE)
+<16:56:41> Control packet ( 20 words LE)
+writing 0xAFADAFFF to read only 0x00000011: forbidden
+<16:56:49> Status packet  ( 16 words BE)
+<16:56:49> Control packet ( 20 words LE)
+writing 0xAFADAFFF to read only 0x00000011: forbidden
+<16:57:13> Status packet  ( 16 words BE)
+<16:57:13> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x0000001A
+writing 0x00000FF0 to 0x0000001B
+writing 0x0000000A to 0x0000001C
+writing 0x00000DAD to 0x0000001D
+writing 0x00ADAD00 to 0x0000001E
+writing 0x00DAD000 to 0x0000001F
+writing 0xADAD0000 to 0x00000020
+writing 0xFFFFFFFF to 0x00000021
+writing 0x00000D0B to 0x00000022
+writing 0x00000BBB to 0x00000023
+writing 0x000000BB to 0x00000024
+writing 0x000CCCCC to 0x00000025
+writing 0x00000EE0 to 0x00000026
+writing 0x00000000 to 0x00000027
+writing 0x000EEEE0 to 0x00000028
+writing 0xEEEEEEEE to 0x00000029
+writing 0xCCCCCCCC to 0x0000002A
+<16:58:44> Status packet  ( 16 words BE)
+<16:58:44> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x0000001C
+writing 0x00000FF0 to 0x0000001D
+writing 0x0000000A to 0x0000001E
+writing 0x00000DAD to 0x0000001F
+writing 0x00ADAD00 to 0x00000020
+writing 0x00DAD000 to 0x00000021
+writing 0xADAD0000 to 0x00000022
+writing 0xFFFFFFFF to 0x00000023
+writing 0x00000D0B to 0x00000024
+writing 0x00000BBB to 0x00000025
+writing 0x000000BB to 0x00000026
+writing 0x000CCCCC to 0x00000027
+writing 0x00000EE0 to 0x00000028
+writing 0x00000000 to 0x00000029
+writing 0x000EEEE0 to 0x0000002A
+writing 0xEEEEEEEE to 0x0000002B
+writing 0xCCCCCCCC to 0x0000002C
+<16:59:31> Status packet  ( 16 words BE)
+<16:59:31> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x0000002D
+writing 0x00000FF0 to 0x0000002E
+writing 0x0000000A to 0x0000002F
+writing 0x00000DAD to read only 0x00000030: forbidden
+<16:59:47> Status packet  ( 16 words BE)
+<16:59:47> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x00000050
+writing 0x00000FF0 to 0x00000051
+writing 0x0000000A to 0x00000052
+writing 0x00000DAD to 0x00000053
+writing 0x00ADAD00 to 0x00000054
+writing 0x00DAD000 to 0x00000055
+writing 0xADAD0000 to 0x00000056
+writing 0xFFFFFFFF to 0x00000057
+writing 0x00000D0B to 0x00000058
+writing 0x00000BBB to 0x00000059
+writing 0x000000BB to 0x0000005A
+writing 0x000CCCCC to 0x0000005B
+writing 0x00000EE0 to 0x0000005C
+writing 0x00000000 to 0x0000005D
+writing 0x000EEEE0 to 0x0000005E
+writing 0xEEEEEEEE to 0x0000005F
+writing 0xCCCCCCCC to 0x00000060
+<17:00:41> Status packet  ( 16 words BE)
+<17:00:41> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x0000006A
+writing 0x00000FF0 to 0x0000006B
+writing 0x0000000A to 0x0000006C
+writing 0x00000DAD to 0x0000006D
+writing 0x00ADAD00 to 0x0000006E
+writing 0x00DAD000 to 0x0000006F
+writing 0xADAD0000 to 0x00000070
+writing 0xFFFFFFFF to 0x00000071
+writing 0x00000D0B to 0x00000072
+writing 0x00000BBB to 0x00000073
+writing 0x000000BB to 0x00000074
+writing 0x000CCCCC to 0x00000075
+writing 0x00000EE0 to 0x00000076
+writing 0x00000000 to 0x00000077
+writing 0x000EEEE0 to 0x00000078
+writing 0xEEEEEEEE to 0x00000079
+writing 0xCCCCCCCC to 0x0000007A
+<17:02:05> Status packet  ( 16 words BE)
+<17:02:05> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x000000D8
+writing 0x00000FF0 to 0x000000D9
+writing 0x0000000A to 0x000000DA
+writing 0x00000DAD to 0x000000DB
+writing 0x00ADAD00 to 0x000000DC
+writing 0x00DAD000 to 0x000000DD
+writing 0xADAD0000 to 0x000000DE
+writing 0xFFFFFFFF to 0x000000DF
+writing 0x00000D0B to 0x000000E0
+writing 0x00000BBB to 0x000000E1
+writing 0x000000BB to 0x000000E2
+writing 0x000CCCCC to 0x000000E3
+writing 0x00000EE0 to 0x000000E4
+writing 0x00000000 to 0x000000E5
+writing 0x000EEEE0 to 0x000000E6
+writing 0xEEEEEEEE to 0x000000E7
+writing 0xCCCCCCCC to read only 0x000000E8: forbidden
+<17:05:33> Status packet  ( 16 words BE)
+<17:05:33> Control packet (  3 words LE)
+reading  17 words from 0x000000D9 (sequental)
+<17:05:40> Status packet  ( 16 words BE)
+<17:05:40> Control packet (  3 words LE)
+reading  17 words from 0x000000D9 (sequental)
+<17:05:53> Status packet  ( 16 words BE)
+<17:05:53> Control packet (  3 words LE)
+reading  11 words from 0x000000DA (sequental)
+<17:18:50> Status packet  ( 16 words BE)
+<17:18:50> Control packet ( 14 words LE)
+writing 0x0000000A to 0x000000DA
+writing 0x00000DAD to 0x000000DB
+writing 0x00ADAD00 to 0x000000DC
+writing 0x00DAD000 to 0x000000DD
+writing 0xADAD0000 to 0x000000DE
+writing 0xFFFFFFFF to 0x000000DF
+writing 0x00000D0B to 0x000000E0
+writing 0x00000BBB to 0x000000E1
+writing 0x000000BB to 0x000000E2
+writing 0x000CCCCC to 0x000000E3
+writing 0x00000EE0 to 0x000000E4
+<17:18:56> Status packet  ( 16 words BE)
+<17:18:56> Control packet ( 23 words LE)
+writing 0x0000000A to 0x000000DA
+writing 0x00000DAD to 0x000000DB
+writing 0x00ADAD00 to 0x000000DC
+writing 0x00DAD000 to 0x000000DD
+writing 0xADAD0000 to 0x000000DE
+writing 0xFFFFFFFF to 0x000000DF
+writing 0x00000D0B to 0x000000E0
+writing 0x00000BBB to 0x000000E1
+writing 0x000000BB to 0x000000E2
+writing 0x000CCCCC to 0x000000E3
+writing 0x00000EE0 to 0x000000E4
+writing 0x00000EE0 to 0x000000E5
+writing 0x00000000 to 0x000000E6
+writing 0x000EEEE0 to 0x000000E7
+writing 0xEEEEEEEE to read only 0x000000E8: forbidden
+<17:19:49> Status packet  ( 16 words BE)
+<17:19:49> Control packet ( 23 words LE)
+writing 0x0000000A to 0x00000000
+writing 0x00000DAD to 0x00000001: out of range, result:0x00000500
+writing 0x00ADAD00 to 0x00000002: out of range, result:0x00000400
+writing 0x00DAD000 to 0x00000003
+writing 0xADAD0000 to 0x00000004
+writing 0xFFFFFFFF to read only 0x00000005: forbidden
+<17:20:15> Status packet  ( 16 words BE)
+<17:20:15> Control packet ( 23 words LE)
+writing 0x0000000A to 0x00000000
+writing 0x0000000A to 0x00000001
+writing 0x0000000A to 0x00000002
+writing 0x00DAD000 to 0x00000003
+writing 0xADAD0000 to 0x00000004
+writing 0xFFFFFFFF to read only 0x00000005: forbidden

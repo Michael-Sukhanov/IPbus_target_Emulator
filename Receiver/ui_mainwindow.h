@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.13.0
+** Created by: Qt User Interface Compiler version 5.14.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -38,6 +38,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *label_5;
     QLineEdit *AdresslineEdit;
+    QPushButton *pushButton_info;
     QPushButton *pushButton_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
@@ -49,7 +50,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(663, 413);
+        MainWindow->resize(665, 422);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -107,19 +108,29 @@ public:
         sizePolicy2.setHeightForWidth(AdresslineEdit->sizePolicy().hasHeightForWidth());
         AdresslineEdit->setSizePolicy(sizePolicy2);
         AdresslineEdit->setMinimumSize(QSize(30, 20));
-        AdresslineEdit->setMaximumSize(QSize(35, 16777215));
+        AdresslineEdit->setMaximumSize(QSize(35, 20));
         AdresslineEdit->setStyleSheet(QString::fromUtf8("font: 8pt \"Consolas\";"));
         AdresslineEdit->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(AdresslineEdit);
 
+        pushButton_info = new QPushButton(centralwidget);
+        pushButton_info->setObjectName(QString::fromUtf8("pushButton_info"));
+        pushButton_info->setMinimumSize(QSize(20, 20));
+        pushButton_info->setMaximumSize(QSize(20, 20));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/new/prefix1/info.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_info->setIcon(icon);
+
+        horizontalLayout->addWidget(pushButton_info);
+
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         pushButton_2->setMinimumSize(QSize(20, 20));
         pushButton_2->setMaximumSize(QSize(20, 20));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8("Clear.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8("Clear.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon1);
 
         horizontalLayout->addWidget(pushButton_2);
 
@@ -155,7 +166,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 663, 23));
+        menubar->setGeometry(QRect(0, 0, 665, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -177,6 +188,7 @@ public:
         label_5->setText(QCoreApplication::translate("MainWindow", "Register's content", nullptr));
         AdresslineEdit->setInputMask(QCoreApplication::translate("MainWindow", ">HHHH", nullptr));
         AdresslineEdit->setText(QCoreApplication::translate("MainWindow", "0000", nullptr));
+        pushButton_info->setText(QString());
         pushButton_2->setText(QString());
         label->setText(QCoreApplication::translate("MainWindow", "Current processes:", nullptr));
         checkBox->setText(QCoreApplication::translate("MainWindow", "Write transactions only", nullptr));

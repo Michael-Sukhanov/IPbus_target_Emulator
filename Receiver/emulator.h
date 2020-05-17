@@ -65,6 +65,23 @@ public:
 
         return Packet_log_message;}
 
+    bool set_board(QString filename, QString Name = "New Board"){
+        bd.set_board_name(Name);
+        return bd.set_regulations(filename);
+    }
+
+    QString board_info(quint16 address){
+       QString readonly = (bd.read_only(address) ? " is read only," : " is") ;
+       if(bd.contains_register(address)){
+           return  readonly +
+                   (bd.is_signed(address) ? " signed," : " unsigned,") +
+                   (bd.range_correction(address) ? " with auto-correction in range from" : " with value in range from") +
+                   " " + Hex(bd.get_Lower_mask(address)) + " to " + Hex(bd.get_upper_mask(address));
+       }
+       else
+           return " without restrictions";
+    }
+
 
 private:
     quint32 adress_space[65536]; // адрессное пространство, где хранятся все записанные по умолчанию регистры
@@ -82,6 +99,8 @@ private:
     QTextStream logStream;
     QString Packet_log_message;
     bool littleEndian = true;
+
+    Board bd;
 
 
     //Загрузка пакета из буфера в ответный пакет
@@ -120,6 +139,7 @@ private:
         littleEndian = true;
         Packet_log_message = "";
     }
+
 
 };
 
