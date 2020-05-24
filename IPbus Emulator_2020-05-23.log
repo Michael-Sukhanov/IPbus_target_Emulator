@@ -1,0 +1,249 @@
+<22:08:37> Status packet  ( 16 words BE)
+<22:08:43> Status packet  ( 16 words BE)
+<22:08:43> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x000010FF
+writing 0x00000FF0 to 0x00001100
+writing 0x00000000 to 0x00001101
+writing 0x00000000 to 0x00001102
+writing 0x00000000 to 0x00001103
+writing 0x00000000 to 0x00001104
+writing 0x00000000 to 0x00001105
+writing 0x00000000 to 0x00001106
+writing 0x00000000 to 0x00001107
+writing 0x00000000 to 0x00001108
+writing 0x00000000 to 0x00001109
+writing 0x00000000 to 0x0000110A
+writing 0x00000000 to 0x0000110B
+writing 0x00000000 to 0x0000110C
+writing 0x00000000 to 0x0000110D
+writing 0x00000000 to 0x0000110E
+writing 0x00000000 to 0x0000110F
+<22:08:45> Status packet  ( 16 words BE)
+<22:08:45> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<22:08:48> Status packet  ( 16 words BE)
+<22:08:48> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<22:28:48> Status packet  ( 16 words BE)
+<22:28:48> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x000010FF
+writing 0x00000FF0 to 0x00001100
+writing 0x00000000 to 0x00001101
+writing 0x00000000 to 0x00001102
+writing 0x00000000 to 0x00001103
+writing 0x00000000 to 0x00001104
+writing 0x00000000 to 0x00001105
+writing 0x00000000 to 0x00001106
+writing 0x00000000 to 0x00001107
+writing 0x00000000 to 0x00001108
+writing 0x00000000 to 0x00001109
+writing 0x00000000 to 0x0000110A
+writing 0x00000000 to 0x0000110B
+writing 0x00000000 to 0x0000110C
+writing 0x00000000 to 0x0000110D
+writing 0x00000000 to 0x0000110E
+writing 0x00000000 to 0x0000110F
+<22:30:56> Status packet  ( 16 words BE)
+<22:30:56> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x000010FF (sequental)
+writing 0x00000FF0 to 0x00001100 (sequental)
+writing 0x00000000 to 0x00001101 (sequental)
+writing 0x00000000 to 0x00001102 (sequental)
+writing 0x00000000 to 0x00001103 (sequental)
+writing 0x00000000 to 0x00001104 (sequental)
+writing 0x00000000 to 0x00001105 (sequental)
+writing 0x00000000 to 0x00001106 (sequental)
+writing 0x00000000 to 0x00001107 (sequental)
+writing 0x00000000 to 0x00001108 (sequental)
+writing 0x00000000 to 0x00001109 (sequental)
+writing 0x00000000 to 0x0000110A (sequental)
+writing 0x00000000 to 0x0000110B (sequental)
+writing 0x00000000 to 0x0000110C (sequental)
+writing 0x00000000 to 0x0000110D (sequental)
+writing 0x00000000 to 0x0000110E (sequental)
+writing 0x00000000 to 0x0000110F (sequental)
+<22:31:08> Status packet  ( 16 words BE)
+<22:31:08> Control packet ( 20 words LE)
+writing 0xAFADAFFF to 0x000010FF (sequental)
+writing 0x00000FF0 to 0x00001100 (sequental)
+writing 0x00000000 to 0x00001101 (sequental)
+writing 0x00000000 to 0x00001102 (sequental)
+writing 0x00000000 to 0x00001103 (sequental)
+writing 0x00000000 to 0x00001104 (sequental)
+writing 0x00000000 to 0x00001105 (sequental)
+writing 0x00000000 to 0x00001106 (sequental)
+writing 0x00000000 to 0x00001107 (sequental)
+writing 0x00000000 to 0x00001108 (sequental)
+writing 0x00000000 to 0x00001109 (sequental)
+writing 0x00000000 to 0x0000110A (sequental)
+writing 0x00000000 to 0x0000110B (sequental)
+writing 0x00000000 to 0x0000110C (sequental)
+writing 0x00000000 to 0x0000110D (sequental)
+writing 0x00000000 to 0x0000110E (sequental)
+writing 0x00000000 to 0x0000110F (sequental)
+<22:33:03> Status packet  ( 16 words BE)
+<22:33:03> Control packet (  5 words LE)
+writing 0xAFADAFFF to 0x000010FF (non-incrementing)
+writing 0x00000FF0 to 0x000010FF (non-incrementing)
+<22:34:13> Status packet  ( 16 words BE)
+<22:34:13> Control packet ( 17 words LE)
+writing 0xAFADAFFF to 0x00000000: out of range, result:0xFFFFFB00 (non-incrementing)
+writing 0x00000FF0 to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000ADA to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0xDADADADA to 0x00000000: out of range, result:0xFFFFFB00 (non-incrementing)
+writing 0x0DADAFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0DDFDFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0000000F to 0x00000000 (non-incrementing)
+writing 0x0000000D to 0x00000000 (non-incrementing)
+writing 0x00000DFD to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000DFD to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0000DFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000BCE to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x000000EA to 0x00000000 (non-incrementing)
+writing 0x0000EAEE to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+<22:35:01> Status packet  ( 16 words BE)
+<22:35:01> Control packet ( 21 words LE)
+writing 0xAFADAFFF to 0x00000000: out of range, result:0xFFFFFB00 (non-incrementing)
+writing 0x00000FF0 to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000ADA to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0xDADADADA to 0x00000000: out of range, result:0xFFFFFB00 (non-incrementing)
+writing 0x0DADAFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0DDFDFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0000000F to 0x00000000 (non-incrementing)
+writing 0x0000000D to 0x00000000 (non-incrementing)
+writing 0x00000DFD to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000DFD to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0000DFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000BCE to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x000000EA to 0x00000000 (non-incrementing)
+writing 0x0000EAEE to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000000 to 0x00000000 (non-incrementing)
+writing 0x00000000 to 0x00000000 (non-incrementing)
+writing 0x00000000 to 0x00000000 (non-incrementing)
+writing 0x000FFF00 to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+<22:35:38> Status packet  ( 16 words BE)
+<22:35:38> Control packet ( 21 words LE)
+writing 0xAFADAFFF to read only 0x00000005: forbidden
+writing 0x00000FF0 to read only 0x00000005: forbidden
+writing 0x00000ADA to read only 0x00000005: forbidden
+writing 0xDADADADA to read only 0x00000005: forbidden
+writing 0x0DADAFDF to read only 0x00000005: forbidden
+writing 0x0DDFDFDF to read only 0x00000005: forbidden
+writing 0x0000000F to read only 0x00000005: forbidden
+writing 0x0000000D to read only 0x00000005: forbidden
+writing 0x00000DFD to read only 0x00000005: forbidden
+writing 0x00000DFD to read only 0x00000005: forbidden
+writing 0x0000DFDF to read only 0x00000005: forbidden
+writing 0x00000BCE to read only 0x00000005: forbidden
+writing 0x000000EA to read only 0x00000005: forbidden
+writing 0x0000EAEE to read only 0x00000005: forbidden
+writing 0x00000000 to read only 0x00000005: forbidden
+writing 0x00000000 to read only 0x00000005: forbidden
+writing 0x00000000 to read only 0x00000005: forbidden
+writing 0x000FFF00 to read only 0x00000005: forbidden
+<22:36:04> Status packet  ( 16 words BE)
+<22:36:04> Control packet ( 21 words LE)
+writing 0xAFADAFFF to read only 0x00000005: forbidden
+<22:37:26> Status packet  ( 16 words BE)
+<22:37:26> Control packet ( 21 words LE)
+writing 0xAFADAFFF to 0x00000005 (sequental)
+writing 0x00000FF0 to 0x00000006 (sequental)
+writing 0x00000ADA to 0x00000007 (sequental)
+writing 0xDADADADA to 0x00000008 (sequental)
+writing 0x0DADAFDF to 0x00000009 (sequental)
+writing 0x0DDFDFDF to 0x0000000A (sequental)
+writing 0x0000000F to 0x0000000B (sequental)
+writing 0x0000000D to 0x0000000C (sequental)
+writing 0x00000DFD to 0x0000000D (sequental)
+writing 0x00000DFD to 0x0000000E (sequental)
+writing 0x0000DFDF to 0x0000000F (sequental)
+writing 0x00000BCE to 0x00000010 (sequental)
+writing 0x000000EA to 0x00000011 (sequental)
+writing 0x0000EAEE to 0x00000012 (sequental)
+writing 0x00000000 to 0x00000013 (sequental)
+writing 0x00000000 to 0x00000014 (sequental)
+writing 0x00000000 to 0x00000015 (sequental)
+writing 0x000FFF00 to 0x00000016 (sequental)
+<22:37:31> Status packet  ( 16 words BE)
+<22:37:31> Control packet ( 21 words LE)
+writing 0xAFADAFFF to 0x00000005 (non-incrementing)
+writing 0x00000FF0 to 0x00000005 (non-incrementing)
+writing 0x00000ADA to 0x00000005 (non-incrementing)
+writing 0xDADADADA to 0x00000005 (non-incrementing)
+writing 0x0DADAFDF to 0x00000005 (non-incrementing)
+writing 0x0DDFDFDF to 0x00000005 (non-incrementing)
+writing 0x0000000F to 0x00000005 (non-incrementing)
+writing 0x0000000D to 0x00000005 (non-incrementing)
+writing 0x00000DFD to 0x00000005 (non-incrementing)
+writing 0x00000DFD to 0x00000005 (non-incrementing)
+writing 0x0000DFDF to 0x00000005 (non-incrementing)
+writing 0x00000BCE to 0x00000005 (non-incrementing)
+writing 0x000000EA to 0x00000005 (non-incrementing)
+writing 0x0000EAEE to 0x00000005 (non-incrementing)
+writing 0x00000000 to 0x00000005 (non-incrementing)
+writing 0x00000000 to 0x00000005 (non-incrementing)
+writing 0x00000000 to 0x00000005 (non-incrementing)
+writing 0x000FFF00 to 0x00000005 (non-incrementing)
+<22:37:50> Status packet  ( 16 words BE)
+<22:37:50> Control packet ( 21 words LE)
+writing 0xAFADAFFF to read only 0x00000005: forbidden
+writing 0x00000FF0 to read only 0x00000005: forbidden
+writing 0x00000ADA to read only 0x00000005: forbidden
+writing 0xDADADADA to read only 0x00000005: forbidden
+writing 0x0DADAFDF to read only 0x00000005: forbidden
+writing 0x0DDFDFDF to read only 0x00000005: forbidden
+writing 0x0000000F to read only 0x00000005: forbidden
+writing 0x0000000D to read only 0x00000005: forbidden
+writing 0x00000DFD to read only 0x00000005: forbidden
+writing 0x00000DFD to read only 0x00000005: forbidden
+writing 0x0000DFDF to read only 0x00000005: forbidden
+writing 0x00000BCE to read only 0x00000005: forbidden
+writing 0x000000EA to read only 0x00000005: forbidden
+writing 0x0000EAEE to read only 0x00000005: forbidden
+writing 0x00000000 to read only 0x00000005: forbidden
+writing 0x00000000 to read only 0x00000005: forbidden
+writing 0x00000000 to read only 0x00000005: forbidden
+writing 0x000FFF00 to read only 0x00000005: forbidden
+<22:37:55> Status packet  ( 16 words BE)
+<22:37:55> Control packet ( 21 words LE)
+writing 0xAFADAFFF to 0x00000000: out of range, result:0xFFFFFB00 (non-incrementing)
+writing 0x00000FF0 to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000ADA to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0xDADADADA to 0x00000000: out of range, result:0xFFFFFB00 (non-incrementing)
+writing 0x0DADAFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0DDFDFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0000000F to 0x00000000 (non-incrementing)
+writing 0x0000000D to 0x00000000 (non-incrementing)
+writing 0x00000DFD to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000DFD to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0000DFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000BCE to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x000000EA to 0x00000000 (non-incrementing)
+writing 0x0000EAEE to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000000 to 0x00000000 (non-incrementing)
+writing 0x00000000 to 0x00000000 (non-incrementing)
+writing 0x00000000 to 0x00000000 (non-incrementing)
+writing 0x000FFF00 to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+<22:43:58> Status packet  ( 16 words BE)
+<22:43:58> Control packet ( 21 words LE)
+writing 0xAFADAFFF to 0x00000000: out of range, result:0xFFFFFB00 (non-incrementing)
+writing 0x00000FF0 to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000ADA to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0xDADADADA to 0x00000000: out of range, result:0xFFFFFB00 (non-incrementing)
+writing 0x0DADAFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0DDFDFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0000000F to 0x00000000 (non-incrementing)
+writing 0x0000000D to 0x00000000 (non-incrementing)
+writing 0x00000DFD to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000DFD to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x0000DFDF to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000BCE to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x000000EA to 0x00000000 (non-incrementing)
+writing 0x0000EAEE to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+writing 0x00000000 to 0x00000000 (non-incrementing)
+writing 0x00000000 to 0x00000000 (non-incrementing)
+writing 0x00000000 to 0x00000000 (non-incrementing)
+writing 0x000FFF00 to 0x00000000: out of range, result:0x00000500 (non-incrementing)
+<22:44:04> Status packet  ( 16 words BE)
+<22:44:04> Control packet ( 21 words LE)
+writing 0xAFADAFFF to read only 0x00000005: forbidden

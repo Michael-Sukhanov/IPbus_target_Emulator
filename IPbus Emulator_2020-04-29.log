@@ -1,0 +1,795 @@
+<19:42:47> Control packet (  5 words LE)
+reading 111 words from 0x00000000 (sequental)
+reading 255 words from 0x00000000 (sequental)
+<19:44:20> Control packet (  5 words LE)
+reading 255 words from 0x00000000 (sequental)
+reading 111 words from 0x00000000 (sequental)
+<19:48:29> Control packet (  5 words LE)
+reading 255 words from 0x00000000 (sequental)
+reading 110 words from 0x00000000: bus error on read
+<19:50:10> Control packet (  5 words LE)
+reading 112 words from 0x00000000 (sequental)
+reading 253 words from 0x00000000: bus error on read
+<19:51:45> Control packet (  5 words LE)
+reading 255 words from 0x00000000 (sequental)
+reading 111 words from 0x00000000 (sequental)
+<19:53:23> Control packet (  5 words LE)
+reading 255 words from 0x00000000 (sequental)
+reading 110 words from 0x00000000: bus error on read
+<19:53:31> Control packet (  5 words LE)
+reading 255 words from 0x00000000 (sequental)
+reading 110 words from 0x00000000: bus error on read
+<19:53:40> Control packet (  5 words LE)
+reading 255 words from 0x00000000 (sequental)
+reading 110 words from 0x00000000 (sequental)
+<19:53:54> Control packet (  5 words LE)
+reading 255 words from 0x00000000 (sequental)
+reading 109 words from 0x00000000 (sequental)
+<19:54:26> Control packet (  5 words LE)
+reading 255 words from 0x00000000 (sequental)
+reading 110 words from 0x00000000: bus error on read
+<19:55:55> Status packet  ( 16 words BE)
+<19:56:12> Control packet (260 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000002 to 0x00000001
+writing  0x00000003 to 0x00000002
+writing  0x00000004 to 0x00000003
+writing  0x00000005 to 0x00000004
+writing  0x00000006 to 0x00000005
+writing  0x00000007 to 0x00000006
+writing  0x00000008 to 0x00000007
+writing  0x00000009 to 0x00000008
+writing  0x0000000A to 0x00000009
+writing  0x0000000B to 0x0000000A
+writing  0x0000000C to 0x0000000B
+writing  0x0000000D to 0x0000000C
+writing  0x0000000E to 0x0000000D
+writing  0x0000000F to 0x0000000E
+writing  0x00000010 to 0x0000000F
+writing  0x00000011 to 0x00000010
+writing  0x00000012 to 0x00000011
+writing  0x00000013 to 0x00000012
+writing  0x00000014 to 0x00000013
+writing  0x00000015 to 0x00000014
+writing  0x00000016 to 0x00000015
+writing  0x00000017 to 0x00000016
+writing  0x00000018 to 0x00000017
+writing  0x00000019 to 0x00000018
+writing  0x0000001A to 0x00000019
+writing  0x0000001B to 0x0000001A
+writing  0x0000001C to 0x0000001B
+writing  0x0000001D to 0x0000001C
+writing  0x0000001E to 0x0000001D
+writing  0x0000001F to 0x0000001E
+writing  0x00000020 to 0x0000001F
+writing  0x00000021 to 0x00000020
+writing  0x00000022 to 0x00000021
+writing  0x00000023 to 0x00000022
+writing  0x00000024 to 0x00000023
+writing  0x00000025 to 0x00000024
+writing  0x00000026 to 0x00000025
+writing  0x00000027 to 0x00000026
+writing  0x00000028 to 0x00000027
+writing  0x00000029 to 0x00000028
+writing  0x0000002A to 0x00000029
+writing  0x0000002B to 0x0000002A
+writing  0x0000002C to 0x0000002B
+writing  0x0000002D to 0x0000002C
+writing  0x0000002E to 0x0000002D
+writing  0x0000002F to 0x0000002E
+writing  0x00000030 to 0x0000002F
+writing  0x00000031 to 0x00000030
+writing  0x00000032 to 0x00000031
+writing  0x00000033 to 0x00000032
+writing  0x00000034 to 0x00000033
+writing  0x00000035 to 0x00000034
+writing  0x00000036 to 0x00000035
+writing  0x00000037 to 0x00000036
+writing  0x00000038 to 0x00000037
+writing  0x00000039 to 0x00000038
+writing  0x0000003A to 0x00000039
+writing  0x0000003B to 0x0000003A
+writing  0x0000003C to 0x0000003B
+writing  0x0000003D to 0x0000003C
+writing  0x0000003E to 0x0000003D
+writing  0x0000003F to 0x0000003E
+writing  0x00000040 to 0x0000003F
+writing  0x00000041 to 0x00000040
+writing  0x00000042 to 0x00000041
+writing  0x00000043 to 0x00000042
+writing  0x00000044 to 0x00000043
+writing  0x00000045 to 0x00000044
+writing  0x00000046 to 0x00000045
+writing  0x00000047 to 0x00000046
+writing  0x00000048 to 0x00000047
+writing  0x00000049 to 0x00000048
+writing  0x0000004A to 0x00000049
+writing  0x0000004B to 0x0000004A
+writing  0x0000004C to 0x0000004B
+writing  0x0000004D to 0x0000004C
+writing  0x0000004E to 0x0000004D
+writing  0x0000004F to 0x0000004E
+writing  0x00000050 to 0x0000004F
+writing  0x00000051 to 0x00000050
+writing  0x00000052 to 0x00000051
+writing  0x00000053 to 0x00000052
+writing  0x00000054 to 0x00000053
+writing  0x00000055 to 0x00000054
+writing  0x00000056 to 0x00000055
+writing  0x00000057 to 0x00000056
+writing  0x00000058 to 0x00000057
+writing  0x00000059 to 0x00000058
+writing  0x0000005A to 0x00000059
+writing  0x0000005B to 0x0000005A
+writing  0x0000005C to 0x0000005B
+writing  0x0000005D to 0x0000005C
+writing  0x0000005E to 0x0000005D
+writing  0x0000005F to 0x0000005E
+writing  0x00000060 to 0x0000005F
+writing  0x00000061 to 0x00000060
+writing  0x00000062 to 0x00000061
+writing  0x00000063 to 0x00000062
+writing  0x00000064 to 0x00000063
+writing  0x00000065 to 0x00000064
+writing  0x00000066 to 0x00000065
+writing  0x00000067 to 0x00000066
+writing  0x00000068 to 0x00000067
+writing  0x00000069 to 0x00000068
+writing  0x0000006A to 0x00000069
+writing  0x0000006B to 0x0000006A
+writing  0x0000006C to 0x0000006B
+writing  0x0000006D to 0x0000006C
+writing  0x0000006E to 0x0000006D
+writing  0x0000006F to 0x0000006E
+writing  0x00000070 to 0x0000006F
+writing  0x00000071 to 0x00000070
+writing  0x00000072 to 0x00000071
+writing  0x00000073 to 0x00000072
+writing  0x00000074 to 0x00000073
+writing  0x00000075 to 0x00000074
+writing  0x00000076 to 0x00000075
+writing  0x00000077 to 0x00000076
+writing  0x00000078 to 0x00000077
+writing  0x00000079 to 0x00000078
+writing  0x0000007A to 0x00000079
+writing  0x0000007B to 0x0000007A
+writing  0x0000007C to 0x0000007B
+writing  0x0000007D to 0x0000007C
+writing  0x0000007E to 0x0000007D
+writing  0x0000007F to 0x0000007E
+writing  0x00000080 to 0x0000007F
+writing  0x00000081 to 0x00000080
+writing  0x00000082 to 0x00000081
+writing  0x00000083 to 0x00000082
+writing  0x00000084 to 0x00000083
+writing  0x00000085 to 0x00000084
+writing  0x00000086 to 0x00000085
+writing  0x00000087 to 0x00000086
+writing  0x00000088 to 0x00000087
+writing  0x00000089 to 0x00000088
+writing  0x0000008A to 0x00000089
+writing  0x0000008B to 0x0000008A
+writing  0x0000008C to 0x0000008B
+writing  0x0000008D to 0x0000008C
+writing  0x0000008E to 0x0000008D
+writing  0x0000008F to 0x0000008E
+writing  0x00000090 to 0x0000008F
+writing  0x00000091 to 0x00000090
+writing  0x00000092 to 0x00000091
+writing  0x00000093 to 0x00000092
+writing  0x00000094 to 0x00000093
+writing  0x00000095 to 0x00000094
+writing  0x00000096 to 0x00000095
+writing  0x00000097 to 0x00000096
+writing  0x00000098 to 0x00000097
+writing  0x00000099 to 0x00000098
+writing  0x0000009A to 0x00000099
+writing  0x0000009B to 0x0000009A
+writing  0x0000009C to 0x0000009B
+writing  0x0000009D to 0x0000009C
+writing  0x0000009E to 0x0000009D
+writing  0x0000009F to 0x0000009E
+writing  0x000000A0 to 0x0000009F
+writing  0x000000A1 to 0x000000A0
+writing  0x000000A2 to 0x000000A1
+writing  0x000000A3 to 0x000000A2
+writing  0x000000A4 to 0x000000A3
+writing  0x000000A5 to 0x000000A4
+writing  0x000000A6 to 0x000000A5
+writing  0x000000A7 to 0x000000A6
+writing  0x000000A8 to 0x000000A7
+writing  0x000000A9 to 0x000000A8
+writing  0x000000AA to 0x000000A9
+writing  0x000000AB to 0x000000AA
+writing  0x000000AC to 0x000000AB
+writing  0x000000AD to 0x000000AC
+writing  0x000000AE to 0x000000AD
+writing  0x000000AF to 0x000000AE
+writing  0x000000B0 to 0x000000AF
+writing  0x000000B1 to 0x000000B0
+writing  0x000000B2 to 0x000000B1
+writing  0x000000B3 to 0x000000B2
+writing  0x000000B4 to 0x000000B3
+writing  0x000000B5 to 0x000000B4
+writing  0x000000B6 to 0x000000B5
+writing  0x000000B7 to 0x000000B6
+writing  0x000000B8 to 0x000000B7
+writing  0x000000B9 to 0x000000B8
+writing  0x000000BA to 0x000000B9
+writing  0x000000BB to 0x000000BA
+writing  0x000000BC to 0x000000BB
+writing  0x000000BD to 0x000000BC
+writing  0x000000BE to 0x000000BD
+writing  0x000000BF to 0x000000BE
+writing  0x000000C0 to 0x000000BF
+writing  0x000000C1 to 0x000000C0
+writing  0x000000C2 to 0x000000C1
+writing  0x000000C3 to 0x000000C2
+writing  0x000000C4 to 0x000000C3
+writing  0x000000C5 to 0x000000C4
+writing  0x000000C6 to 0x000000C5
+writing  0x000000C7 to 0x000000C6
+writing  0x000000C8 to 0x000000C7
+writing  0x000000C9 to 0x000000C8
+writing  0x000000CA to 0x000000C9
+writing  0x000000CB to 0x000000CA
+writing  0x000000CC to 0x000000CB
+writing  0x000000CD to 0x000000CC
+writing  0x000000CE to 0x000000CD
+writing  0x000000CF to 0x000000CE
+writing  0x000000D0 to 0x000000CF
+writing  0x000000D1 to 0x000000D0
+writing  0x000000D2 to 0x000000D1
+writing  0x000000D3 to 0x000000D2
+writing  0x000000D4 to 0x000000D3
+writing  0x000000D5 to 0x000000D4
+writing  0x000000D6 to 0x000000D5
+writing  0x000000D7 to 0x000000D6
+writing  0x000000D8 to 0x000000D7
+writing  0x000000D9 to 0x000000D8
+writing  0x000000DA to 0x000000D9
+writing  0x000000DB to 0x000000DA
+writing  0x000000DC to 0x000000DB
+writing  0x000000DD to 0x000000DC
+writing  0x000000DE to 0x000000DD
+writing  0x000000DF to 0x000000DE
+writing  0x000000E0 to 0x000000DF
+writing  0x000000E1 to 0x000000E0
+writing  0x000000E2 to 0x000000E1
+writing  0x000000E3 to 0x000000E2
+writing  0x000000E4 to 0x000000E3
+writing  0x000000E5 to 0x000000E4
+writing  0x000000E6 to 0x000000E5
+writing  0x000000E7 to 0x000000E6
+writing  0x000000E8 to 0x000000E7
+writing  0x000000E9 to 0x000000E8
+writing  0x000000EA to 0x000000E9
+writing  0x000000EB to 0x000000EA
+writing  0x000000EC to 0x000000EB
+writing  0x000000ED to 0x000000EC
+writing  0x000000EE to 0x000000ED
+writing  0x000000EF to 0x000000EE
+writing  0x000000F0 to 0x000000EF
+writing  0x000000F1 to 0x000000F0
+writing  0x000000F2 to 0x000000F1
+writing  0x000000F3 to 0x000000F2
+writing  0x000000F4 to 0x000000F3
+writing  0x000000F5 to 0x000000F4
+writing  0x000000F6 to 0x000000F5
+writing  0x000000F7 to 0x000000F6
+writing  0x000000F8 to 0x000000F7
+writing  0x000000F9 to 0x000000F8
+writing  0x000000FA to 0x000000F9
+writing  0x000000FB to 0x000000FA
+writing  0x000000FC to 0x000000FB
+writing  0x000000FD to 0x000000FC
+writing  0x000000FE to 0x000000FD
+writing  0x000000FF to 0x000000FE
+reading  16 words from 0x00000000 (sequental)
+<21:19:48> Status packet  ( 16 words BE)
+<21:19:56> Status packet  ( 16 words BE)
+<21:19:56> Control packet ( 20 words LE)
+writing  0xAFADAFFF to 0x000010FF
+writing  0x00000FF0 to 0x00001100
+writing  0x00000000 to 0x00001101
+writing  0x00000000 to 0x00001102
+writing  0x00000000 to 0x00001103
+writing  0x00000000 to 0x00001104
+writing  0x00000000 to 0x00001105
+writing  0x00000000 to 0x00001106
+writing  0x00000000 to 0x00001107
+writing  0x00000000 to 0x00001108
+writing  0x00000000 to 0x00001109
+writing  0x00000000 to 0x0000110A
+writing  0x00000000 to 0x0000110B
+writing  0x00000000 to 0x0000110C
+writing  0x00000000 to 0x0000110D
+writing  0x00000000 to 0x0000110E
+writing  0x00000000 to 0x0000110F
+<21:20:05> Status packet  ( 16 words BE)
+<21:20:05> Control packet (  3 words LE)
+reading  17 words from 0x00001100 (sequental)
+<21:54:26> Control packet ( 22 words LE)
+writing  0x00000001 to 0x00001014 (non-incrementing)
+writing  0x00000002 to 0x00001014 (non-incrementing)
+writing  0x00000003 to 0x00001014 (non-incrementing)
+writing  0x00000004 to 0x00001014 (non-incrementing)
+writing  0x00000005 to 0x00001014 (non-incrementing)
+writing  0x00000006 to 0x00001014 (non-incrementing)
+writing  0x00000007 to 0x00001014 (non-incrementing)
+writing  0x00000008 to 0x00001014 (non-incrementing)
+writing  0x00000009 to 0x00001014 (non-incrementing)
+writing  0x0000000A to 0x00001014 (non-incrementing)
+writing  0x0000000B to 0x00001014 (non-incrementing)
+writing  0x0000000C to 0x00001014 (non-incrementing)
+writing  0x0000000D to 0x00001014 (non-incrementing)
+writing  0x0000000E to 0x00001014 (non-incrementing)
+writing  0x0000000F to 0x00001014 (non-incrementing)
+writing  0x00000010 to 0x00001014 (non-incrementing)
+writing  0x00000011 to 0x00001014 (non-incrementing)
+writing  0x00000012 to 0x00001014 (non-incrementing)
+writing  0x00000013 to 0x00001014 (non-incrementing)
+<21:54:40> Control packet (  3 words LE)
+reading   4 words from 0x00001014 (non-incrementing)
+<21:54:44> Control packet (  3 words LE)
+reading   4 words from 0x00001014 (non-incrementing)
+<21:54:48> Control packet (  3 words LE)
+reading   4 words from 0x00001014 (non-incrementing)
+<21:54:52> Control packet (  3 words LE)
+reading   4 words from 0x00001014 (non-incrementing)
+<21:54:55> Control packet (  3 words LE)
+reading   4 words from 0x00001014 (non-incrementing)
+<21:54:59> Control packet (  3 words LE)
+reading   4 words from 0x00001014 (non-incrementing)
+<21:55:17> Control packet (  5 words LE)
+reading 255 words from 0x00001014 (non-incrementing)
+reading 110 words from 0x00001014: bus error on read
+<21:55:41> Control packet (  5 words LE)
+reading 255 words from 0x00001014 (non-incrementing)
+reading 110 words from 0x00001014 (non-incrementing)
+<21:56:07> Control packet ( 24 words LE)
+writing  0x00000001 to 0x00001013 (non-incrementing)
+writing  0x00000002 to 0x00001013 (non-incrementing)
+writing  0x00000003 to 0x00001013 (non-incrementing)
+writing  0x00000004 to 0x00001013 (non-incrementing)
+writing  0x00000005 to 0x00001013 (non-incrementing)
+writing  0x00000006 to 0x00001013 (non-incrementing)
+writing  0x00000007 to 0x00001013 (non-incrementing)
+writing  0x00000008 to 0x00001013 (non-incrementing)
+writing  0x00000009 to 0x00001013 (non-incrementing)
+writing  0x0000000A to 0x00001013 (non-incrementing)
+writing  0x0000000B to 0x00001013 (non-incrementing)
+writing  0x0000000C to 0x00001013 (non-incrementing)
+writing  0x0000000D to 0x00001013 (non-incrementing)
+writing  0x0000000E to 0x00001013 (non-incrementing)
+writing  0x0000000F to 0x00001013 (non-incrementing)
+writing  0x00000010 to 0x00001013 (non-incrementing)
+writing  0x00000011 to 0x00001013 (non-incrementing)
+writing  0x00000012 to 0x00001013 (non-incrementing)
+writing  0x00000013 to 0x00001013 (non-incrementing)
+writing  0x00000014 to 0x00001013 (non-incrementing)
+writing  0x00000015 to 0x00001013 (non-incrementing)
+<21:56:44> Control packet (  3 words LE)
+reading   3 words from 0x00001013 (non-incrementing)
+<21:56:53> Control packet (  3 words LE)
+reading 255 words from 0x00001013 (non-incrementing)
+<21:57:01> Control packet (  5 words LE)
+reading 255 words from 0x00001013 (non-incrementing)
+reading 110 words from 0x00001013: bus error on read
+<21:59:09> Status packet  ( 16 words BE)
+<21:59:09> Control packet ( 20 words LE)
+writing  0x00000FF0 to 0x00001014 (non-incrementing)
+writing  0x00000AD0 to 0x00001014 (non-incrementing)
+writing  0x00000DAD to 0x00001014 (non-incrementing)
+writing  0x00000000 to 0x00001014 (non-incrementing)
+writing  0x0000000F to 0x00001014 (non-incrementing)
+writing  0x00000000 to 0x00001014 (non-incrementing)
+writing  0x000000FD to 0x00001014 (non-incrementing)
+writing  0x00000000 to 0x00001014 (non-incrementing)
+writing  0x00000000 to 0x00001014 (non-incrementing)
+writing  0x00000000 to 0x00001014 (non-incrementing)
+writing  0x00000FB0 to 0x00001014 (non-incrementing)
+writing  0x0000000B to 0x00001014 (non-incrementing)
+writing  0x00000000 to 0x00001014 (non-incrementing)
+writing  0x00000000 to 0x00001014 (non-incrementing)
+writing  0x00000000 to 0x00001014 (non-incrementing)
+writing  0x00000BBD to 0x00001014 (non-incrementing)
+writing  0x00000000 to 0x00001014 (non-incrementing)
+<21:59:19> Status packet  ( 16 words BE)
+<21:59:19> Control packet (  3 words LE)
+reading   3 words from 0x00001014 (non-incrementing)
+<22:28:57> Status packet  ( 16 words BE)
+<22:28:57> Control packet ( 15 words LE)
+writing  0x00000FF0 to 
+writing  0x00000AD0 to 
+writing  0x00000DAD to 
+writing  0x00000000 to 
+writing  0x0000000F to 
+writing  0x00000000 to 
+writing  0x000000FD to 
+writing  0x00000000 to 
+writing  0x00000000 to 
+writing  0x00000000 to 
+writing  0x00000FB0 to 
+writing  0x0000000B to 
+<22:29:49> Status packet  ( 16 words BE)
+<22:29:49> Control packet ( 15 words LE)
+writing  0x00000FF0 to 0x00001000
+writing  0x00000AD0 to 0x00001001
+writing  0x00000DAD to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x0000000F to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x000000FD to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000FB0 to 0x0000100A
+writing  0x0000000B to 0x0000100B
+<22:30:10> Status packet  ( 16 words BE)
+<22:30:10> Control packet ( 25 words LE)
+writing  0x00000FF0 to 0x00001000
+writing  0x00000AD0 to 0x00001001
+writing  0x00000DAD to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x0000000F to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x000000FD to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000FB0 to 0x0000100A
+writing  0x0000000B to 0x0000100B
+writing  0x00000000 to 0x0000100C
+writing  0x00000000 to 0x0000100D
+writing  0x00000000 to 0x0000100E
+writing  0x00000BBD to 0x0000100F
+writing  0x00000000 to 0x00001010
+writing  0x000FFF00 to 0x00001011
+writing  0x00000F00 to 0x00001012
+writing  0x00ABBB00 to 0x00001013
+writing  0x00000000 to read only0x00001014: forbidden
+<22:30:26> Status packet  ( 16 words BE)
+<22:30:26> Control packet ( 25 words LE)
+writing  0x00000FF0 to 0x00001000
+writing  0x00000AD0 to 0x00001001
+writing  0x00000DAD to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x0000000F to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x000000FD to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000FB0 to 0x0000100A
+writing  0x0000000B to 0x0000100B
+writing  0x00000000 to 0x0000100C
+writing  0x00000000 to 0x0000100D
+writing  0x00000000 to 0x0000100E
+writing  0x00000BBD to 0x0000100F
+writing  0x00000000 to 0x00001010
+writing  0x000FFF00 to 0x00001011
+writing  0x00000F00 to 0x00001012
+writing  0x00ABBB00 to 0x00001013
+writing  0x00000000 to read only0x00001014: forbidden
+<22:31:05> Control packet (  6 words LE)
+writing  0x000000AD to 0x00000000
+writing  0x207C030F to 0x00000001
+writing  0x00000000 to 0x00000002
+writing  impossible: Bad header
+writing  0x00000000 to 0x00000003
+<22:32:23> Control packet (  6 words LE)
+writing  0x000000AD to 0x00000000
+writing  0x207C030F to 0x00000001
+writing  0x00000000 to 0x00000002
+writing  impossible: Bad header
+<22:33:11> Control packet (  3 words LE)
+reading   7 words from 0x00000000 (sequental)
+<22:33:45> Status packet  ( 16 words BE)
+<22:33:45> Control packet ( 25 words LE)
+writing  0x00000FF0 to 0x00001000 (non-incrementing)
+writing  0x00000AD0 to 0x00001000 (non-incrementing)
+writing  0x00000DAD to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x0000000F to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x000000FD to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000FB0 to 0x00001000 (non-incrementing)
+writing  0x0000000B to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000BBD to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x000FFF00 to 0x00001000 (non-incrementing)
+writing  0x00000F00 to 0x00001000 (non-incrementing)
+writing  0x00ABBB00 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+<22:34:00> Status packet  ( 16 words BE)
+<22:34:00> Control packet ( 23 words LE)
+writing  0x00000FF0 to 0x00001000 (non-incrementing)
+writing  0x00000AD0 to 0x00001000 (non-incrementing)
+writing  0x00000DAD to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x0000000F to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x000000FD to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000FB0 to 0x00001000 (non-incrementing)
+writing  0x0000000B to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000BBD to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x000FFF00 to 0x00001000 (non-incrementing)
+writing  0x00000F00 to 0x00001000 (non-incrementing)
+writing  0x00ABBB00 to 0x00001000 (non-incrementing)
+<22:44:38> Status packet  ( 16 words BE)
+<22:44:44> Status packet  ( 16 words BE)
+<22:44:44> Control packet ( 23 words LE)
+writing  0x00000FF0 to 0x00001000
+writing  0x00000AD0 to 0x00001001
+writing  0x00000DAD to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x0000000F to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x000000FD to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000FB0 to 0x0000100A
+writing  0x0000000B to 0x0000100B
+writing  0x00000000 to 0x0000100C
+writing  0x00000000 to 0x0000100D
+writing  0x00000000 to 0x0000100E
+writing  0x00000BBD to 0x0000100F
+writing  0x00000000 to 0x00001010
+writing  0x000FFF00 to 0x00001011
+writing  0x00000F00 to 0x00001012
+writing  0x00ABBB00 to 0x00001013
+<22:44:50> Status packet  ( 16 words BE)
+<22:44:50> Control packet ( 26 words LE)
+writing  0x00000FF0 to 0x00001000
+writing  0x00000AD0 to 0x00001001
+writing  0x00000DAD to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x0000000F to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x000000FD to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000FB0 to 0x0000100A
+writing  0x0000000B to 0x0000100B
+writing  0x00000000 to 0x0000100C
+writing  0x00000000 to 0x0000100D
+writing  0x00000000 to 0x0000100E
+writing  0x00000BBD to 0x0000100F
+writing  0x00000000 to 0x00001010
+writing  0x000FFF00 to 0x00001011
+writing  0x00000F00 to 0x00001012
+writing  0x00ABBB00 to 0x00001013
+writing  0x00000000 to read only 0x00001014: forbidden
+<22:47:10> Status packet  ( 16 words BE)
+<22:47:10> Control packet (  3 words LE)
+reading  24 words from 0x00001000 (sequental)
+<22:47:34> Status packet  ( 16 words BE)
+<22:47:34> Control packet ( 27 words LE)
+writing  0x00000000 to 0x00001000
+writing  0x00000000 to 0x00001001
+writing  0x00000000 to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x00000000 to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x00000000 to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000000 to 0x0000100A
+writing  0x00000000 to 0x0000100B
+writing  0x00000000 to 0x0000100C
+writing  0x00000000 to 0x0000100D
+writing  0x00000000 to 0x0000100E
+writing  0x00000000 to 0x0000100F
+writing  0x00000000 to 0x00001010
+writing  0x00000000 to 0x00001011
+writing  0x00000000 to 0x00001012
+writing  0x00000000 to 0x00001013
+writing  0x00000000 to read only 0x00001014: forbidden
+<22:49:42> Status packet  ( 16 words BE)
+<22:49:42> Control packet ( 27 words LE)
+writing  0x00000000 to 0x00001000
+writing  0x00000000 to 0x00001001
+writing  0x00000000 to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x00000000 to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x00000000 to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000000 to 0x0000100A
+writing  0x00000000 to 0x0000100B
+writing  0x00000000 to 0x0000100C
+writing  0x00000000 to 0x0000100D
+writing  0x00000000 to 0x0000100E
+writing  0x00000000 to 0x0000100F
+writing  0x00000000 to 0x00001010
+writing  0x00000000 to 0x00001011
+writing  0x00000000 to 0x00001012
+writing  0x00000000 to 0x00001013
+writing  0x00000000 to read only 0x00001014: forbidden
+<22:51:37> Status packet  ( 16 words BE)
+<22:51:43> Status packet  ( 16 words BE)
+<22:51:43> Control packet ( 27 words LE)
+writing  0x00000000 to 0x00001000
+writing  0x00000000 to 0x00001001
+writing  0x00000000 to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x00000000 to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x00000000 to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000000 to 0x0000100A
+writing  0x00000000 to 0x0000100B
+writing  0x00000000 to 0x0000100C
+writing  0x00000000 to 0x0000100D
+writing  0x00000000 to 0x0000100E
+writing  0x00000000 to 0x0000100F
+writing  0x00000000 to 0x00001010
+writing  0x00000000 to 0x00001011
+writing  0x00000000 to 0x00001012
+writing  0x00000000 to 0x00001013
+writing  0x00000000 to read only 0x00001014: forbidden
+<22:52:18> Status packet  ( 16 words BE)
+<22:52:18> Control packet ( 27 words LE)
+writing  0x00000000 to 0x00001000
+writing  0x00000000 to 0x00001001
+writing  0x00000000 to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x00000000 to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x00000000 to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000000 to 0x0000100A
+writing  0x00000000 to 0x0000100B
+writing  0x00000000 to 0x0000100C
+writing  0x00000000 to 0x0000100D
+writing  0x00000000 to 0x0000100E
+writing  0x00000000 to 0x0000100F
+writing  0x00000000 to 0x00001010
+writing  0x00000000 to 0x00001011
+writing  0x00000000 to 0x00001012
+writing  0x00000000 to 0x00001013
+writing  0x00000000 to read only 0x00001014: forbidden
+<22:52:24> Status packet  ( 16 words BE)
+<22:52:24> Control packet ( 27 words LE)
+writing  0x00000000 to 0x00001000
+writing  0x00000000 to 0x00001001
+writing  0x00000000 to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x00000000 to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x00000000 to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000000 to 0x0000100A
+writing  0x00000000 to 0x0000100B
+writing  0x00000000 to 0x0000100C
+writing  0x00000000 to 0x0000100D
+writing  0x00000000 to 0x0000100E
+writing  0x00000000 to 0x0000100F
+writing  0x00000000 to 0x00001010
+writing  0x00000000 to 0x00001011
+writing  0x00000000 to 0x00001012
+writing  0x00000000 to 0x00001013
+writing  0x00000000 to read only 0x00001014: forbidden
+<22:52:27> Status packet  ( 16 words BE)
+<22:52:27> Control packet ( 27 words LE)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+writing  0x00000000 to 0x00001000 (non-incrementing)
+<22:52:32> Status packet  ( 16 words BE)
+<22:52:32> Control packet (  3 words LE)
+reading  24 words from 0x00001000 (non-incrementing)
+<22:55:36> Status packet  ( 16 words BE)
+<22:55:42> Status packet  ( 16 words BE)
+<22:55:42> Control packet ( 27 words LE)
+writing  0x00000000 to 0x00001000
+writing  0x00000000 to 0x00001001
+writing  0x00000000 to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x00000000 to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x00000000 to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000000 to 0x0000100A
+writing  0x00000000 to 0x0000100B
+writing  0x00000000 to 0x0000100C
+writing  0x00000000 to 0x0000100D
+writing  0x00000000 to 0x0000100E
+writing  0x00000000 to 0x0000100F
+writing  0x00000000 to 0x00001010
+writing  0x00000000 to 0x00001011
+writing  0x00000000 to 0x00001012
+writing  0x00000000 to 0x00001013
+writing  0x00000000 to read only 0x00001014: forbidden
+<22:55:45> Status packet  ( 16 words BE)
+<22:55:45> Control packet ( 23 words LE)
+writing  0x00000000 to 0x00001000
+writing  0x00000000 to 0x00001001
+writing  0x00000000 to 0x00001002
+writing  0x00000000 to 0x00001003
+writing  0x00000000 to 0x00001004
+writing  0x00000000 to 0x00001005
+writing  0x00000000 to 0x00001006
+writing  0x00000000 to 0x00001007
+writing  0x00000000 to 0x00001008
+writing  0x00000000 to 0x00001009
+writing  0x00000000 to 0x0000100A
+writing  0x00000000 to 0x0000100B
+writing  0x00000000 to 0x0000100C
+writing  0x00000000 to 0x0000100D
+writing  0x00000000 to 0x0000100E
+writing  0x00000000 to 0x0000100F
+writing  0x00000000 to 0x00001010
+writing  0x00000000 to 0x00001011
+writing  0x00000000 to 0x00001012
+writing  0x00000000 to 0x00001013
+<22:55:52> Status packet  ( 16 words BE)
+<22:55:52> Control packet (  3 words LE)
+reading   8 words from 0x00001000 (sequental)
+<22:56:25> Control packet (  5 words LE)
+reading 255 words from 0x00000000 (sequental)
+reading 110 words from 0x00000000: bus error on read
+<22:56:36> Control packet (  5 words LE)
+reading 255 words from 0x00000000 (sequental)
+reading 110 words from 0x00000000 (sequental)
+<22:56:43> Control packet (  5 words LE)
+reading 111 words from 0x00000000 (sequental)
+reading 254 words from 0x00000000: bus error on read
+<22:56:52> Control packet (  6 words LE)
+writing  0x000000AD to 0x00000000
+writing  0x207C030F to 0x00000001
+writing  0x00000000 to 0x00000002
+writing  impossible: Bad header
+<22:57:38> Control packet (  6 words LE)
+writing  0x000000AD to 0x00000000
+writing  0x207C030F to 0x00000001
+writing  0x00000000 to 0x00000002
+writing  impossible: Bad header

@@ -1,0 +1,218 @@
+<17:57:17> Status packet  ( 16 words BE)
+<17:57:30> Status packet  ( 16 words BE)
+<17:57:30> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<17:57:35> Status packet  ( 16 words BE)
+<17:57:35> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<17:57:49> Status packet  ( 16 words BE)
+<17:57:49> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<17:57:50> Status packet  ( 16 words BE)
+<17:57:50> Control packet ( 20 words LE)
+writing  0x00000000 to 0x000010FF
+writing  0x00000000 to 0x00001100
+writing  0x00000000 to 0x00001101
+writing  0x00000000 to 0x00001102
+writing  0x00000000 to 0x00001103
+writing  0x00000000 to 0x00001104
+writing  0x00000000 to 0x00001105
+writing  0x00000000 to 0x00001106
+writing  0x00000000 to 0x00001107
+writing  0x00000000 to 0x00001108
+writing  0x00000000 to 0x00001109
+writing  0x00000000 to 0x0000110A
+writing  0x00000000 to 0x0000110B
+writing  0x00000000 to 0x0000110C
+writing  0x00000000 to 0x0000110D
+writing  0x00000000 to 0x0000110E
+writing  0x00000000 to 0x0000110F
+<17:58:32> Status packet  ( 16 words BE)
+<17:58:32> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<18:09:10> Status packet  ( 16 words BE)
+<18:09:10> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<18:09:16> Status packet  ( 16 words BE)
+<18:09:16> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<18:09:17> Status packet  ( 16 words BE)
+<18:09:17> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<18:09:21> Status packet  ( 16 words BE)
+<18:09:21> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<18:09:29> Status packet  ( 16 words BE)
+<18:09:29> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<18:14:24> Status packet  ( 16 words BE)
+<18:14:24> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<18:14:57> Status packet  ( 16 words BE)
+<18:14:57> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<18:15:00> Status packet  ( 16 words BE)
+<18:15:00> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<18:15:03> Status packet  ( 16 words BE)
+<18:15:03> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<18:15:31> Control packet ( 15 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000002 to 0x00000001
+writing  0x00000003 to 0x00000002
+reading   2 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+writing  0x00000002 to 0x00000001
+writing  0x00000003 to 0x00000002
+<18:16:12> Control packet ( 15 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000002 to 0x00000001
+writing  0x00000003 to 0x00000002
+reading   3 words from 0x00000000 (sequental)
+reading   3 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+writing  0x00000002 to 0x00000001
+writing  0x00000003 to 0x00000002
+<18:16:26> Control packet (  7 words LE)
+reading   3 words from 0x00000000 (sequental)
+reading   3 words from 0x00000000 (sequental)
+reading   3 words from 0x00000000 (sequental)
+<18:18:09> Control packet ( 10 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+<18:18:17> Control packet (  9 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+<18:18:24> Control packet ( 12 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+<18:19:38> Control packet (  4 words LE)
+writing  0x00000001 to 0x00000000
+<18:19:46> Control packet ( 15 words LE)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+<18:19:56> Control packet (  6 words LE)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+<18:20:25> Control packet (  6 words LE)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+<18:20:28> Status packet  ( 16 words BE)
+<18:21:51> Control packet (  4 words LE)
+writing  0x00000001 to 0x00000000
+<18:21:55> Control packet ( 13 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+<18:21:59> Control packet ( 12 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+<18:22:05> Control packet ( 12 words LE)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+<18:23:02> Control packet ( 11 words LE)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+<18:23:40> Control packet ( 11 words LE)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+<18:31:59> Control packet ( 11 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+<18:32:04> Control packet (  1 words LE)
+<18:32:09> Control packet (  5 words LE)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+<18:32:17> Control packet ( 11 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+<18:33:05> Control packet (  9 words LE)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+<18:33:14> Control packet ( 11 words LE)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+<18:38:32> Control packet (  7 words LE)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+<18:41:00> Control packet (  8 words LE)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+<18:44:48> Control packet ( 11 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+<18:48:47> Control packet ( 11 words LE)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+<18:49:00> Control packet ( 11 words LE)
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+<18:49:32> Control packet ( 11 words LE)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+<18:49:39> Control packet ( 22 words LE)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+<18:49:48> Control packet ( 16 words LE)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+writing  0x00000001 to 0x00000000
+<18:50:26> Control packet ( 11 words LE)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+reading   1 words from 0x00000000 (sequental)
+<18:50:29> Status packet  ( 16 words BE)
+<18:50:29> Control packet (  3 words LE)
+reading  17 words from 0x000010FF (sequental)
+<18:50:54> Control packet (  6 words LE)
+reading   1 words from 0x00001014 (non-incrementing)
+writing  0x00000001 to 0x00001014 (non-incrementing)

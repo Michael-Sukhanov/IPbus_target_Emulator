@@ -1,0 +1,90 @@
+<21:01:31> Status packet (64BE)
+<21:01:40> Status packet (64BE)
+<21:04:00> Status packet (64BE)
+<21:07:28> Status packet (64BE)
+<21:20:38> Status packet (16words BE)
+<21:20:45> Status packet (16words BE)
+<21:20:45> Control packet (18words BE)
+<21:20:52> Status packet (16words BE)
+<21:20:52> Control packet (3words BE)
+<21:22:57> Status packet	(16 words	BE)
+<21:22:59> Status packet	(16 words	BE)
+<21:22:59> Control packet	(11 words	BE)
+<21:26:39> Status packet  (16 wordsBE)
+<21:26:49> Status packet  (16 wordsBE)
+<21:26:51> Status packet  (16 wordsBE)
+<21:26:51> Control packet(11 wordsBE)
+<21:26:56> Status packet  (16 wordsBE)
+<21:26:56> Control packet(14 wordsBE)
+<21:53:25> Status packet  (16 wordsBE)
+<21:53:29> Status packet  (16 wordsBE)
+<21:53:29> Control packet (14 wordsBE)
+writing 0x0to 0x3
+writing 0x1to 0x4
+writing 0x0to 0x5
+writing 0x10to 0x6
+writing 0xFDEBFFFFto 0x7
+writing 0xA000Ato 0x8
+writing 0xBBBBAAAAto 0x9
+writing 0x1C2CCCCto 0xA
+writing 0xBBBBAAAAto 0xB
+writing 0x1C2CCCCto 0xC
+writing 0xF00F0to 0xD
+<22:32:42> Status packet  (16 wordsBE)
+<22:32:44> Status packet  (16 wordsBE)
+<22:32:44> Control packet (18 wordsBE)
+writing 0x000000000x00000003
+writing 0x000000010x00000004
+writing 0x000000000x00000005
+writing 0x000000100x00000006
+writing 0xFDEBFFFF0x00000007
+writing 0x000A000A0x00000008
+writing 0xBBBBAAAA0x00000009
+writing 0x01C2CCCC0x0000000A
+writing 0xBBBBAAAA0x0000000B
+writing 0x01C2CCCC0x0000000C
+writing 0x000F00F00x0000000D
+writing 0x001103F80x0000000E
+writing 0xAAFD9B990x0000000F
+writing 0x0000008F0x00000010
+writing 0x07FF00000x00000011
+<22:32:47> Status packet  (16 wordsBE)
+<22:32:47> Control packet (20 wordsBE)
+writing 0x000000000x00000003
+writing 0x000000010x00000004
+writing 0x000000000x00000005
+writing 0x000000100x00000006
+writing 0xFDEBFFFF0x00000007
+writing 0x000A000A0x00000008
+writing 0xBBBBAAAA0x00000009
+writing 0x01C2CCCC0x0000000A
+writing 0xBBBBAAAA0x0000000B
+writing 0x01C2CCCC0x0000000C
+writing 0x000F00F00x0000000D
+writing 0x001103F80x0000000E
+writing 0xAAFD9B990x0000000F
+writing 0x0000008F0x00000010
+writing 0x07FF00000x00000011
+writing 0x000000000x00000012
+writing 0x000000000x00000013
+---------------------------------------------------------------
+<22:36:58> Status packet  (16 wordsBE)
+---------------------------------------------------------------
+<22:36:58> Control packet (20 wordsBE)
+writing 0x00000000 to 0x00000033
+writing 0x00000001 to 0x00000034
+writing 0x00000000 to 0x00000035
+writing 0x00000010 to 0x00000036
+writing 0xFDEBFFFF to 0x00000037
+writing 0x000A000A to 0x00000038
+writing 0xBBBBAAAA to 0x00000039
+writing 0x01C2CCCC to 0x0000003A
+writing 0xBBBBAAAA to 0x0000003B
+writing 0x01C2CCCC to 0x0000003C
+writing 0x000F00F0 to 0x0000003D
+writing 0x001103F8 to 0x0000003E
+writing 0xAAFD9B99 to 0x0000003F
+writing 0x0000008F to 0x00000040
+writing 0x07FF0000 to 0x00000041
+writing 0x00000000 to 0x00000042
+writing 0x00000000 to 0x00000043

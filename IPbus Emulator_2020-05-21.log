@@ -1,0 +1,4 @@
+<22:44:18> Status packet  ( 16 words BE)
+<22:44:33> Status packet  ( 16 words BE)
+<22:44:33> Control packet ( 20 words LE)
+writing 0xAFADAFFF to read only 0x000000D8: forbidden
