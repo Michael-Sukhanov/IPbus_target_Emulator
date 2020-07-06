@@ -67,7 +67,14 @@ public:
 
     bool set_board(QString filename, QString Name = "New Board"){
         bd.set_board_name(Name);
-        return bd.set_regulations(filename);
+        if(bd.set_regulations(filename)){
+          for(quint32 address = 0; address < 0x10000; ++address)
+              if(bd.contains_register(quint16(address)))
+                  bd.set_registers(Get_info(), address, adress_space[address], "", true);
+          return true;
+        }
+        else
+            return false;
     }
 
     QString board_info(quint16 address){
@@ -80,6 +87,51 @@ public:
        }
        else
            return " without restrictions";
+    }
+
+    void remove_board(){    bd.clear_restrictions();}
+
+    bool load_state(QTextStream* in){
+        bool ok;
+        QString address, value;
+        quint16 address_uint = 0;
+        quint32 value_uint = 0;
+        QRegExp hex_address("0x0{0,4}[0-9A-Fa-f]{1,4}"),
+                hex_value("0x[0-9A-Fa-f]{1,8}"),
+                dec_address("[0-5]?[0-9]{1,4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]"),
+                dec_value("[0-3]?[0-9]{1,9}|4[10][0-9]{8}|"
+                          "42[0-8][0-9]{7}|429[0-3][0-9]{6}"
+                          "4294[0-8][0-9]{5}|42949[0-6][0-9]{4}|"
+                          "429496[0-7][0-9]{3}|4294967[0-2]{2}|"
+                          "42949672[0-8][0-9]{1}|429496729[0-5]");
+        regs_to_zero();
+        while(!in->atEnd()){
+            *in >> address >> value;
+            if(address.isEmpty())
+                continue;
+//            qDebug() << address << "\t" << value;
+//            qDebug() << hex_address.exactMatch(address) << dec_address.exactMatch(address) << hex_value.exactMatch(value) << dec_value.exactMatch(value);
+            if(hex_address.exactMatch(address))
+                address_uint = address.toUtf8().toUInt(&ok, 16);
+            else if(dec_address.exactMatch(address))
+                address_uint = address.toUtf8().toUInt(&ok, 10);
+            else
+                return false;
+            if(hex_value.exactMatch(value))
+                value_uint = value.toUtf8().toUInt(&ok, 16);
+            else if(dec_value.exactMatch(value))
+                value_uint = value.toUtf8().toUInt(&ok, 10);
+            else
+                return false;
+//            qDebug()<<ok;
+            if(ok)
+                adress_space[address_uint] = value_uint;
+            else
+                return false;
+        }
+        for(quint32 add = 0; add < 0xffff; ++add)
+            bd.set_registers(Get_info(), quint16(add), Get_info()[add]);
+        return true;
     }
 
 
@@ -138,6 +190,11 @@ private:
     void clear_log(){
         littleEndian = true;
         Packet_log_message = "";
+    }
+
+    void regs_to_zero(){
+        for(quint32 address = 0; address < 0x10000; ++address)
+            adress_space[address] = 0;
     }
 
 

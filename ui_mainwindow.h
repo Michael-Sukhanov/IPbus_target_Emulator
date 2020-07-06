@@ -123,7 +123,7 @@ public:
         pushButton_info->setMinimumSize(QSize(20, 20));
         pushButton_info->setMaximumSize(QSize(20, 20));
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/new/prefix1/info.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/images/info.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_info->setIcon(icon);
 
         horizontalLayout->addWidget(pushButton_info);
@@ -133,7 +133,7 @@ public:
         pushButton_2->setMinimumSize(QSize(20, 20));
         pushButton_2->setMaximumSize(QSize(20, 20));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8("Clear.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8(":/images/Clear.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_2->setIcon(icon1);
 
         horizontalLayout->addWidget(pushButton_2);

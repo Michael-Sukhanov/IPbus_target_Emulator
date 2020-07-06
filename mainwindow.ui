@@ -175,8 +175,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="res.qrc">
-          <normaloff>:/new/prefix1/info.png</normaloff>:/new/prefix1/info.png</iconset>
+         <iconset resource="resources.qrc">
+          <normaloff>:/images/info.png</normaloff>:/images/info.png</iconset>
         </property>
        </widget>
       </item>
@@ -198,8 +198,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>Clear.png</normaloff>Clear.png</iconset>
+         <iconset resource="resources.qrc">
+          <normaloff>:/images/Clear.png</normaloff>:/images/Clear.png</iconset>
         </property>
        </widget>
       </item>
@@ -268,7 +268,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>

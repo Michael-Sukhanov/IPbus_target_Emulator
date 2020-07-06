@@ -24,7 +24,16 @@ public:
 
     bool set_regulations(QString filename);
 
-    void set_registers(quint32* reg, quint16 address, quint32 value, QString type =" (sequental)");
+    void set_registers(quint32* reg, quint16 address, quint32 value,  QString type =" (sequental)", bool create_mode = false);
+
+    void clear_restrictions(){
+        readonly.clear();
+        sign.clear();
+        rangecorr.clear();
+        UpperMask.clear();
+        LowerMask.clear();
+        this->set_board_name("");
+    }
 
     quint32 get_upper_mask(quint16 address){return UpperMask.contains(address) ? UpperMask[address] : 0xFFFFFFFF;}
     quint32 get_Lower_mask(quint16 address){return LowerMask.contains(address) ? LowerMask[address] : 0x00000000;}
@@ -46,6 +55,8 @@ private:
     QHash<quint16, bool> rangecorr;
     QHash<quint16, quint32> UpperMask;
     QHash<quint16, quint32> LowerMask;
+
+    void config_read(QTextStream *, quint16 start = 0x0);
 
 
 

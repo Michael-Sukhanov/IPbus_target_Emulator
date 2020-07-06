@@ -38,5 +38,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES +=
 
 RESOURCES += \
-    res.qrc
+    resources.qrc
 RC_ICONS = icon.ico

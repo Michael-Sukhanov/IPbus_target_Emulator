@@ -2,5 +2,9 @@
     <qresource prefix="/new/prefix1">
         <file>Clear.png</file>
         <file>info.png</file>
+        <file>Configs.png</file>
+        <file>Load.png</file>
+        <file>Remove restrictions.png</file>
+        <file>Save.png</file>
     </qresource>
 </RCC>

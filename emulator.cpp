@@ -2,9 +2,10 @@
 
 Emulator::Emulator()
 {
-    logFile.setFileName(QCoreApplication::applicationName() + '_' + QDate::currentDate().toString("yyyy-MM-dd") + ".log");
+    logFile.setFileName("Logs/" + QCoreApplication::applicationName() + '_' + QDate::currentDate().toString("yyyy-MM-dd") + ".log");
     logFile.open(QFile::WriteOnly | QIODevice::Append | QFile::Text);
     logStream.setDevice(&logFile);
+    regs_to_zero();
 }
 
 Emulator::~Emulator()
@@ -228,7 +229,8 @@ void Emulator::Non_Incrementing_read_transaction(TransactionHeader th){
                 break;
             }
             response[responseSize / 4+ 1 +i] = request[counter + 1] == FIFO_adress ? (FIFO_queue.isEmpty() ? 0x0 : FIFO_queue.dequeue()) : adress_space[request[counter +1]];
-            adress_space[request[counter + 1]] = FIFO_queue.isEmpty() ? 0x0 : FIFO_queue.head();
+            if(request[counter + 1] == FIFO_adress)
+                adress_space[request[counter + 1]] = FIFO_queue.isEmpty() ? 0x0 : FIFO_queue.head();
         }
     response[responseSize / 4] = quint32(th);
     log("reading " + Words(th.Words) + " words from " + Hex(request[counter + 1])  + (error_on_read ? ": bus error on read" :" (non-incrementing)"));

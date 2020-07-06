@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowTitle(QCoreApplication::applicationName() + " v" + QCoreApplication::applicationVersion());
     socket = new QUdpSocket(this);
-    ui->pushButton_2->setIcon(QIcon(":/new/prefix1/Clear.png"));
+//    ui->pushButton_2->setIcon(QIcon(":/new/prefix1/Clear.png"));
     ui->pushButton->hide();
     if(socket->bind(QHostAddress::AnyIPv4, 50001)){
         ui->statusbar->showMessage("Bind succesfull");
@@ -32,22 +32,38 @@ MainWindow::MainWindow(QWidget *parent)
     });
     ui->label->setFont(QFont("Consolas", 8));
 
-    QMenu *fileMenu = menuBar()->addMenu("&File");
-    fileMenu->addAction("&Load board configuration from...", this, SLOT(load()), QKeySequence::Open);
 
-    info ->setKey(Qt::CTRL + Qt::Key_I);
-    clear->setKey(Qt::CTRL + Qt::Key_E);
-    exit ->setKey(Qt::CTRL + Qt::Key_Q);
-    bind ->setKey(Qt::CTRL + Qt::Key_B);
-    w_log->setKey(Qt::CTRL + Qt::Key_W);
+    QMenu *fileMenu = menuBar()->addMenu("&File");
+    QMenu *ConfigMenu = menuBar()->addMenu("&Config");
+    ConfigMenu->addAction(QIcon(":/images/Configs.png"),"&Load board configuration from...", this, SLOT(load()), QKeySequence::Open);
+    fileMenu->addAction(QIcon(":/images/Save.png"),"Save state", this, SLOT(save_values()), Qt::CTRL + Qt::Key_S);
+    fileMenu->addAction(QIcon(":/images/Load.png"),"Load state", this, SLOT(load_values()), Qt::CTRL + Qt::Key_L);
+    ConfigMenu->addAction(QIcon(":/images/Remove restrictions.png"),"&Clear restrictions", this, SLOT(clear_restrictions()), Qt::CTRL + Qt::Key_Q + Qt::SHIFT);
+
+    toolBar = new QToolBar("Tool bar", this);
+    toolBar->addAction(QIcon(":/images/Save.png"),"Save state", this, SLOT(save_values()));
+    toolBar->addAction(QIcon(":/images/Load.png"),"Load state", this, SLOT(load_values()));
+    toolBar->addSeparator();
+    toolBar->addAction(QIcon(":/images/Configs.png"),"&Load board configuration from...", this, SLOT(load()));
+    toolBar->addAction(QIcon(":/images/Remove restrictions.png"),"&Clear restrictions", this, SLOT(clear_restrictions()));
+
+    addToolBar(Qt::TopToolBarArea, toolBar);
 
     connect(info,  &QShortcut::activated, this, [=](){on_pushButton_info_clicked();});
     connect(clear, &QShortcut::activated, this, [=](){on_pushButton_2_clicked();});
     connect(exit,  &QShortcut::activated, this, [=](){QCoreApplication::exit();});
     connect(bind,  &QShortcut::activated, this, [=](){on_pushButton_clicked();});
     connect(w_log, &QShortcut::activated, this, [=](){ui->checkBox->setChecked(!ui->checkBox->isChecked());});
+    connect(toolbar_on,  &QShortcut::activated, this, [=](){if(menuBar()->isHidden()){
+           menuBar()->show();
+           toolBar->hide();
+        }else{
+           menuBar()->hide();
+           toolBar->show();
+     }});
 
     ui->AdresslineEdit->installEventFilter(this);
+    toolBar->hide();
 
 }
 
@@ -67,7 +83,7 @@ void MainWindow::on_pushButton_clicked(){
 void MainWindow::on_AdresslineEdit_editingFinished(){
     bool ok;
     quint16 actual_adress = ui->AdresslineEdit->text().toUInt(&ok, 16);
-    ui->Adresses_textEdit->append('[' + obj.Hex(actual_adress).remove(2,4)  + ']' + " = " + obj.Hex(*(obj.Get_info() + actual_adress)));
+    ui->Adresses_textEdit->append("[0x" + obj.Hex(actual_adress).right(4)  + ']' + " = " + obj.Hex(*(obj.Get_info() + actual_adress)));
 }
 
 void MainWindow::on_pushButton_2_clicked(){
@@ -75,15 +91,21 @@ void MainWindow::on_pushButton_2_clicked(){
 }
 
 void MainWindow::load() {
+    obj.remove_board();
     QFileDialog dialog(this);
     dialog.setWindowModality(Qt::WindowModal);
     dialog.setAcceptMode(QFileDialog::AcceptOpen);
     if (dialog.exec() != QDialog::Accepted || !obj.set_board(dialog.selectedFiles().first()))
         statusBar()->showMessage("File not loaded");
     else{
-        statusBar()->showMessage("File loaded", 2000);
+        statusBar()->showMessage("Configurations loaded " + QFileInfo(dialog.selectedFiles().first()).filePath(), 2000);
     }
 }
+
+void MainWindow::clear_restrictions(){
+    obj.remove_board();
+    ui->statusbar->showMessage("Restrictions removed", 2000);
+    }
 
 
 void MainWindow::on_pushButton_info_clicked(){
@@ -93,22 +115,66 @@ void MainWindow::on_pushButton_info_clicked(){
 
 bool MainWindow::eventFilter(QObject * obj, QEvent* event){
     bool ok;
-    quint16 address = (ui->AdresslineEdit->text()).toUInt(&ok,16);
+    quint16 address = (ui->AdresslineEdit->text()).toUtf8().toUInt(&ok, 16);
     if (obj == ui->AdresslineEdit){
         if (event->type() == QEvent::KeyPress){
             QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
             if (keyEvent->key() == Qt::Key_Up){
-                 ui->AdresslineEdit->setText(Emulator::Hex(address + 1).remove(0,6));
+                 ui->AdresslineEdit->setText(Emulator::Hex(address + 1).right(4));
                  return true;
             }
             else if(keyEvent->key() == Qt::Key_Down){
-                ui->AdresslineEdit->setText(Emulator::Hex(address - 1).remove(0,6));
+                ui->AdresslineEdit->setText(Emulator::Hex(address - 1).right(4));
                 return true;
             }
         }
         return false;
     }
     return QMainWindow::eventFilter(obj, event);
+}
+
+void MainWindow::save_values(){
+    QString saveFilename = QFileDialog::getSaveFileName(this,
+             "Save state", "Saves/" + QDate::currentDate().toString("yyyy-MM-dd") + " state",
+             "Text files(*.txt  *.dat)");
+    if (saveFilename.isEmpty())
+             return;
+    else{
+        QFile file(saveFilename);
+        if(!file.open(QIODevice::WriteOnly)) {
+            ui->statusbar->showMessage("Unable to open file", 2000);
+            return;
+         }else{
+            QTextStream out(&file);
+            for (quint32 address = 0; address < 0x10000; ++ address){
+                if(obj.Get_info()[address] != 0x0)
+                    out << Emulator::Hex(address) +'\t' << Emulator::Hex(obj.Get_info()[address]) + '\n';
+            ui->statusbar->showMessage("State saved successfully to " + QFileInfo(file).filePath(), 2000);
+            }
+            file.close();
+        }
+    }
+}
+
+void MainWindow::load_values(){
+    QString loadFilename = QFileDialog::getOpenFileName(this, "Load state", "",
+                                                        "Text files(*.txt  *.dat)");
+    if(loadFilename.isEmpty())
+            return;
+    else{
+        QFile file(loadFilename);
+        if(!file.open(QIODevice::ReadOnly)){
+            ui->statusbar->showMessage("Unable to open file", 2000);
+        }else{
+            QTextStream in(&file);
+            if(!obj.load_state(&in))
+                ui->statusbar->showMessage("ERROR: Invalid format", 2000);
+            else
+                ui->statusbar->showMessage("State loaded successfully from " + QFileInfo(file).filePath(), 2000);
+        }
+        file.close();
+    }
+
 }
 
 

@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/Clear.png</file>
+        <file>images/Configs.png</file>
+        <file>images/icon.ico</file>
+        <file>images/icon.psd</file>
+        <file>images/Icos.psd</file>
+        <file>images/info.png</file>
+        <file>images/Load.png</file>
+        <file>images/Remove restrictions.png</file>
+        <file>images/Save.png</file>
+    </qresource>
+</RCC>
