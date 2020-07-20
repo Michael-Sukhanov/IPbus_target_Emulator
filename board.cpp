@@ -1,7 +1,6 @@
 #include "board.h"
 
-Board::Board()
-{
+Board::Board(){
 
 }
 
@@ -10,6 +9,8 @@ Board::~Board(){
 }
 
 bool Board::set_regulations(QString filename){
+    FIFOs.clear();
+    FIFOs[0x100] = QQueue<quint32>();
     bool ok;
     QString tmp;
     QFile file(filename);
@@ -25,14 +26,16 @@ bool Board::set_regulations(QString filename){
             in>> tmp;
     }
     if(hex_mask.exactMatch(tmp.toUtf8()) || bi_mask.exactMatch(tmp.toUtf8())){
-        quint32 mask = tmp.toUtf8().toInt(&ok, hex_mask.exactMatch(tmp.toUtf8()) ? 16 : 2);
+        quint32 mask = tmp.toUtf8().toUInt(&ok, hex_mask.exactMatch(tmp.toUtf8()) ? 16 : 2);
         for(quint8 counter = 0; counter < 20; ++counter){
             QFile pm("Configs/PM.txt");
             QTextStream pm_in(&pm);
             if(!pm.open(QFile::ReadOnly))
                 break;
-            if((mask & quint32(pow(2, counter))) == quint32(pow(2, counter)))
+            if((mask & quint32(pow(2, counter))) == quint32(pow(2, counter))){
                 config_read(&pm_in, (counter + 1) * 0x200);
+                  FIFOs[0x200 * (counter + 1) + 0x100] = QQueue<quint32>();
+            }
             pm.close();
         }
     }
@@ -42,8 +45,9 @@ bool Board::set_regulations(QString filename){
 }
 //create_mode установка значений регистров в диапазоне при загрузке файла кнфигурации
 void Board::set_registers(quint32 *reg, quint16 address, quint32 value, QString type, bool create_mode){
+//    qDebug()<<"Setting registers";
     bool corrected = false;
-    if(readonly.contains(address) && (!read_only(address) || create_mode)){
+    if(readonly.contains(address) && (!read_only(address) || create_mode) && !is_FIFO(address)){
         if(is_signed(address)){
             if(range_correction(address) || create_mode){
                 if(qint32(value) < qint32(get_Lower_mask(address))){
@@ -75,7 +79,7 @@ void Board::set_registers(quint32 *reg, quint16 address, quint32 value, QString 
          }
     }
     else if(readonly.contains(address)){
-        message = "writing " + Hex(value) + " to read only " + Hex(address) + ": forbidden";
+        message = "writing " + Hex(value) + " to " + (is_FIFO(address) ? "FIFO" : "read only ") + Hex(address) + ": forbidden";
     }
     else{
         reg[address] = value;
@@ -96,7 +100,7 @@ void Board::config_read(QTextStream * in, quint16 start){
     }
     while(!in->atEnd()){
         *in >> tmp;
-        registers_address = tmp.toUtf8().toUInt(&ok, 16) + start;
+        registers_address = quint16(tmp.toUtf8().toUInt(&ok, 16) + start);
         if(!readonly.contains(registers_address)){
             *in >> tmp;
             readonly[registers_address ] = bool(tmp.toUtf8().toInt());

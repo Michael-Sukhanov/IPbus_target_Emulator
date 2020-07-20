@@ -6,30 +6,38 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+//     qDebug()<<"Error1";
     setWindowTitle(QCoreApplication::applicationName() + " v" + QCoreApplication::applicationVersion());
     socket = new QUdpSocket(this);
 //    ui->pushButton_2->setIcon(QIcon(":/new/prefix1/Clear.png"));
     ui->pushButton->hide();
     if(socket->bind(QHostAddress::AnyIPv4, 50001)){
         ui->statusbar->showMessage("Bind succesfull");
+//        qDebug()<<"Bind succesfull";
     }
     else{
         ui->statusbar->showMessage("Bind failed");
         ui->pushButton->show();
+//        qDebug()<<"Bind failed";
     }
     connect(socket, &QUdpSocket::readyRead, [=](){
         if(socket->hasPendingDatagrams()){
+//            qDebug()<<"Got a packet";
             obj.requestSize = quint16(socket->pendingDatagramSize());
             socket->readDatagram(obj.Prequest, obj.requestSize, &senderAdress, &senderPort);
+//            qDebug()<<"Processing packet";
             obj.Prepare_response();
             ui->statusbar->showMessage("Connection with " + senderAdress.toString() + ':' + QString::number(senderPort, 10));
+//            qDebug()<<"Sending datagram";
             if(obj.ready())
                 socket->writeDatagram( obj.get_response(), obj.responseSize, senderAdress, senderPort);
+//            qDebug()<<"Clearing response";
             obj.Clear_response();
             if(obj.GetLogMessage(ui->checkBox->isChecked()) != "")
                 ui->textEdit_log->append(obj.GetLogMessage(ui->checkBox->isChecked()));
         }
     });
+//    qDebug()<<"Error";
     ui->label->setFont(QFont("Consolas", 8));
 
 
@@ -83,7 +91,7 @@ void MainWindow::on_pushButton_clicked(){
 void MainWindow::on_AdresslineEdit_editingFinished(){
     bool ok;
     quint16 actual_adress = ui->AdresslineEdit->text().toUInt(&ok, 16);
-    ui->Adresses_textEdit->append("[0x" + obj.Hex(actual_adress).right(4)  + ']' + " = " + obj.Hex(*(obj.Get_info() + actual_adress)));
+    ui->Adresses_textEdit->append("[0x" + obj.Hex(actual_adress).right(4)  + ']' + " = " + obj.Hex(obj.Get_info()[actual_adress]));
 }
 
 void MainWindow::on_pushButton_2_clicked(){
@@ -91,6 +99,7 @@ void MainWindow::on_pushButton_2_clicked(){
 }
 
 void MainWindow::load() {
+//    qDebug()<<"Loading file";
     obj.remove_board();
     QFileDialog dialog(this);
     dialog.setWindowModality(Qt::WindowModal);

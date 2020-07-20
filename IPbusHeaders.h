@@ -87,4 +87,13 @@ struct StatusPacket {
     quint32 controlHistory[8] = {0,0,0,0, 0,0,0,0};
 };
 
+struct Parameter {
+    quint32 address;
+    quint8 bitwidth,
+           bitshift,
+           channelsInterval; //for PM channels parameters
+    Parameter(): address(0), bitwidth(0), bitshift(0), channelsInterval(0) {}
+    Parameter(quint32 addr, quint8 w, quint8 sh, quint8 chw): address(addr), bitwidth(w), bitshift(sh), channelsInterval(chw) {}
+};
+
 #endif // IPBUSHEADERS_H

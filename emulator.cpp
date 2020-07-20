@@ -1,7 +1,8 @@
 #include "emulator.h"
 
-Emulator::Emulator()
-{
+Emulator::Emulator(){
+    hlr = new EventHandler(&adress_space, &bd);
+    connect(this, SIGNAL(ValueChanged(quint16)), hlr, SLOT(handle(quint16)));
     logFile.setFileName("Logs/" + QCoreApplication::applicationName() + '_' + QDate::currentDate().toString("yyyy-MM-dd") + ".log");
     logFile.open(QFile::WriteOnly | QIODevice::Append | QFile::Text);
     logStream.setDevice(&logFile);
@@ -15,17 +16,21 @@ Emulator::~Emulator()
 
 void Emulator::Prepare_response()
 {
+//    qDebug()<<"Clearing log";
     clear_log();
     ready_to_send_response = true;// не нужно?
     //Первым делом смотрим на порядок байт, так как эмулятор написан для младшего порядка
     //Создаем тестовый заголовок, по которому определяем поряд
+//    qDebug()<<"Checking byte order";
     PacketHeader request_pack_header = PacketHeader(request[0]);
     //Если порядок старший, то меняем порядок байт
+//    qDebug()<<"Checking protocol version";
     if(request_pack_header.ProtocolVersion == 0xf){
         Request_to_little_endian();
         littleEndian = false;
     }
     //Далее анализируем, и, если все в порядке, составляем заголовок пакета
+//    qDebug()<<"Preparing header";
     Prepare_Header();
     // Если заголовк пакета составлен и мы готовы с ним работать, то выполняется следующее
     if(ready_to_send_response)
@@ -33,6 +38,7 @@ void Emulator::Prepare_response()
         // Если заголовок пакета типа статус и при этом пакет пришел в старшем порядке байт, то
         if(PacketHeader(request[0]).PacketType == 0x1 && request_pack_header.ProtocolVersion == 0xf)// Тип пакета и старший порядок байт обязательны
         {
+//            qDebug()<<"recieved status packet";
             // Проверяем, размер пакета, исходя из правил протокола
             if(requestSize == 16 * Word_size)
             {
@@ -185,8 +191,9 @@ void Emulator::Write_transaction(TransactionHeader th){
             th.Words = i;
             log("writing  impossible: Bad header");
         }else{
-            read_only = bd.read_only(request[counter + 1] + i);
-            bd.set_registers(adress_space, request[counter + 1] + i,  request[counter + 2 + i]);
+            read_only = bd.read_only(quint16(request[counter + 1] + i)) || bd.is_FIFO(quint16(request[counter + 1] + i));
+            bd.set_registers(Get_info(), quint16(request[counter + 1] + i),  request[counter + 2 + i]);
+            emit ValueChanged(quint16(request[counter + 1] + i));
             log(bd.get_message());
             th.InfoCode = read_only ? 0x5 : 0x0;
             if(read_only){
@@ -210,7 +217,10 @@ void Emulator::Read_transaction(TransactionHeader th){
             error_on_read = true;
             break;
         }
-        response[responseSize / 4 + 1 + i] = adress_space[request[counter +1]+i];
+        response[responseSize / 4 + 1 + i] = bd.is_FIFO(quint16(request[counter +1] + i)) ?
+                    bd.get_FIFO_pointer(quint16(request[counter +1] + i))->dequeue() : adress_space[quint16(request[counter +1] + i)];
+        if(bd.is_FIFO(quint16(request[counter +1] + i)))
+            emit FIFOchanged(quint16(request[counter +1] + i));
     }
     response[responseSize / 4] = quint32(th);
     log("reading " + Words(th.Words) + " words from " + Hex(request[counter + 1]) + (error_on_read ? ": bus error on read" :" (sequental)"));
@@ -219,6 +229,7 @@ void Emulator::Read_transaction(TransactionHeader th){
 }
 
 void Emulator::Non_Incrementing_read_transaction(TransactionHeader th){
+    quint16 regAddrtoRead = quint16(request[counter + 1]);
     bool error_on_read = false;
     th.InfoCode = 0;
     for(quint8 i = 0; i<th.Words; i++){
@@ -228,10 +239,14 @@ void Emulator::Non_Incrementing_read_transaction(TransactionHeader th){
                 error_on_read = true;
                 break;
             }
-            response[responseSize / 4+ 1 +i] = request[counter + 1] == FIFO_adress ? (FIFO_queue.isEmpty() ? 0x0 : FIFO_queue.dequeue()) : adress_space[request[counter +1]];
-            if(request[counter + 1] == FIFO_adress)
-                adress_space[request[counter + 1]] = FIFO_queue.isEmpty() ? 0x0 : FIFO_queue.head();
+            response[responseSize / 4+ 1 + i] = bd.is_FIFO(regAddrtoRead) ?
+                        (bd.get_FIFO_pointer(regAddrtoRead)->isEmpty() ?
+                            0x0 : bd.get_FIFO_pointer(regAddrtoRead)->dequeue()) : adress_space[quint16(request[counter +1])];
+            emit FIFOchanged(regAddrtoRead);
         }
+    if(bd.is_FIFO(regAddrtoRead)) //Указатель на первый элемент очереди в обычное адрессное пространство
+        adress_space[regAddrtoRead] = bd.get_FIFO_pointer(regAddrtoRead)->isEmpty() ?
+                    0x0 : bd.get_FIFO_pointer(regAddrtoRead)->head();
     response[responseSize / 4] = quint32(th);
     log("reading " + Words(th.Words) + " words from " + Hex(request[counter + 1])  + (error_on_read ? ": bus error on read" :" (non-incrementing)"));
     counter = error_on_read ? requestSize / 4 : counter + 2;
@@ -239,6 +254,7 @@ void Emulator::Non_Incrementing_read_transaction(TransactionHeader th){
 }
 
 void Emulator::Non_Incrementing_write_transaction(TransactionHeader th){
+    quint16 regAddrtoWrite = quint16(request[counter + 1]);
     //Если число слов указанное в заголовке больше имеющегося в транзакции
     if( th.Words + counter > requestSize / 4){
         th.InfoCode = 0x5;
@@ -250,50 +266,54 @@ void Emulator::Non_Incrementing_write_transaction(TransactionHeader th){
         //  Если ответ уже формируется, то заголовок транзакции в массиве будет иметь номер, соответствующий размеру массива в байтах деленному на 4
         response[responseSize / 4] = quint32(th);
         // Проверка, если Base Adress соответствует FIFO адрессу
-        if(request[counter + 1] == FIFO_adress){
+        if(bd.is_FIFO(regAddrtoWrite)){
             // Запись в очередь элементов запроса начиная со второго слова транзакции (первое заголовок, второе адрес)
             for(quint32 i = 0; i < th.Words; i++){
-                FIFO_queue.enqueue(request[counter + 2 + i]);
-                log("writing  " + Hex(request[counter + 2 + i]) + " to " + Hex(FIFO_adress) + " (non-incrementing)");
+                bd.get_FIFO_pointer(regAddrtoWrite)->enqueue(request[counter + 2 + i]);
+                emit FIFOchanged(regAddrtoWrite);
+                log("writing  " + Hex(request[counter + 2 + i]) + " to " + Hex(request[counter + 1]) + " (non-incrementing)");
             }
             //Регистр соответствующий адрессу FIFO ссылается на первое слово в очереди
-            adress_space[FIFO_adress] = FIFO_queue.head();
+            adress_space[regAddrtoWrite] = bd.get_FIFO_pointer(regAddrtoWrite)->head();
         }
         else
             // Если Base Adress не соответствует FIFO адрессу, то в регистр записывается последнее слово в транзакции (рано или поздно)
             for(quint32 i = 0; i<th.Words; i++){
-                bd.set_registers(adress_space, request[counter + 1],  request[counter + 2 + i], " (non-incrementing)");
+                bd.set_registers(Get_info(), regAddrtoWrite,  request[counter + 2 + i], " (non-incrementing)");
                 log(bd.get_message());
-                if(bd.read_only(request[counter + 1]))
+                if(bd.read_only(regAddrtoWrite))
                     break;
             }
+            emit ValueChanged(regAddrtoWrite);
     }
     // Ответная транзакция состоит из одного заголовка, поэтому увеличиваем размер только на одно 32-битное слово
     responseSize += Word_size;
     // Счетчик увеличивается на количество слов плюс заголовок 32 бита плюс адресс
-    counter = bd.read_only(request[counter + 1]) ? requestSize / 4 : counter + 2 + th.Words;
+    counter = bd.read_only(regAddrtoWrite) ? requestSize / 4 : counter + 2 + th.Words;
 }
 
 void Emulator::RMWbits_transaction(TransactionHeader th){
-    if(request[counter + 1 ]!= FIFO_adress){
+    quint16 regAddrtoChange = quint16(request[counter + 1]);
+    if(!bd.is_FIFO(regAddrtoChange)){
         // В заголовке такой транзакции должно быть одно слово. В случае если это не так, то транзакция выполняется. но ответный заголовок содержит сообщение об ошибке
         th.InfoCode = (th.Words == 1 ? 0 : 5);
         // Ответный заголовк полностью соответствует заголовку запроса, за исключением InfoCode
         response[responseSize/4] = quint32(th);
         // В ответной транзакции содержится значение в регистре до изменения
-        response[responseSize/4 + 1] = adress_space[request[counter + 1]];
+        response[responseSize/4 + 1] = adress_space[regAddrtoChange];
         // Изменение значения в регистре выражением ( X & A) | B
-        bd.set_registers(adress_space, request[counter + 1],  (adress_space[request[counter + 1]] & request[counter + 2])|request[counter + 3], "");
+        bd.set_registers(Get_info(), regAddrtoChange,  (adress_space[regAddrtoChange] & request[counter + 2])|request[counter + 3], "");
+        emit ValueChanged(regAddrtoChange);
         log(bd.get_message());
         // Ответная транзакция содержит 2 32-битных слова: заголовок и содержимое до изменения
         responseSize += 2 * Word_size;
         // Счетчик перeдвигается на три слова + 1 слова полюбому, но если больше слов то сдвигаемя на столько, сколько указано в заголовке (так решили)
-        counter = bd.read_only(request[counter + 1]) ? requestSize/4 : counter +  3 + th.Words;
+        counter = bd.read_only(regAddrtoChange) ? requestSize/4 : counter +  3 + th.Words;
     }
     else{
         th.InfoCode = 5;
         response[responseSize/4] = quint32(th);
-        log("writing  " + Hex((adress_space[request[counter + 1]] & request[counter + 2])|request[counter + 3]) + " to read-only " + Hex(request[counter + 1]) + ": forbidden");
+        log("writing  " + Hex((adress_space[regAddrtoChange] & request[counter + 2])|request[counter + 3]) + " to read-only " + Hex(request[counter + 1]) + ": forbidden");
         responseSize += Word_size;
         counter = requestSize / 4;
     }
@@ -301,27 +321,27 @@ void Emulator::RMWbits_transaction(TransactionHeader th){
 }
 
 void Emulator::RMWsum_transaction(TransactionHeader th){
-    if(request[counter + 1]  != FIFO_adress){
-    // В заголовке такой транзакции должно быть одно слово. В случае если это не так, то транзакция выполняется. но ответный заголовок содержит сообщение об ошибке
-    th.InfoCode = (th.Words == 1 ? 0 : 5);
-    // Ответный заголовк полностью соответствует заголовку запроса, за исключением InfoCode
-    response[responseSize/4] = quint32(th);
-    // В ответной транзакции содержится значение в регистре до изменения
-    response[responseSize/4 + 1] = adress_space[request[counter + 1]];
-    // Изменение значения в регистре выражением ( X + A )
-    bd.set_registers(adress_space, request[counter + 1],  adress_space[request[counter + 1]] + request[counter + 2], "");
-    log(bd.get_message());
-    // Ответная транзакция содержит 2 32-битных слова: заголовок и содержимое до изменения
-    responseSize += 2 * Word_size;
-    }
-    else{
+    quint16 regAddrtoChange = quint16(request[counter + 1]);
+    if(!bd.is_FIFO(quint16(request[counter + 1 ]))){
+        // В заголовке такой транзакции должно быть одно слово. В случае если это не так, то транзакция выполняется. но ответный заголовок содержит сообщение об ошибке
+        th.InfoCode = (th.Words == 1 ? 0 : 5);
+        // Ответный заголовк полностью соответствует заголовку запроса, за исключением InfoCode
+        response[responseSize/4] = quint32(th);
+        // В ответной транзакции содержится значение в регистре до изменения
+        response[responseSize/4 + 1] = adress_space[regAddrtoChange];
+        // Изменение значения в регистре выражением ( X + A )
+        bd.set_registers(Get_info(), regAddrtoChange,  adress_space[regAddrtoChange] + request[counter + 2], "");
+        log(bd.get_message());
+        // Ответная транзакция содержит 2 32-битных слова: заголовок и содержимое до изменения
+        responseSize += 2 * Word_size;
+    }else{
         th.InfoCode = 5;
         response[responseSize / 4] = quint32(th);
         responseSize += Word_size;
-        log("writing  " + Hex(adress_space[request[counter + 1]] + request[counter + 2]) + " to read-only " + Hex(request[counter + 1]) + ": forbidden");
+        log("writing  " + Hex(adress_space[regAddrtoChange] + request[counter + 2]) + " to read-only " + Hex(request[counter + 1]) + ": forbidden");
     }
     // Счетчик пердвигается на два слова + 1 слова полюбому, но если больше слов то сдвигаемя на столько, сколько указано в заголовке (так решили)
-    counter =bd.read_only(adress_space[request[counter + 1]]) ? requestSize/4 : counter + 2 + th.Words;
+    counter =bd.read_only(regAddrtoChange) ? requestSize/4 : counter + 2 + th.Words;
 }
 
 void Emulator::response_to_buffer()

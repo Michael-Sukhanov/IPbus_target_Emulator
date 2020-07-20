@@ -7,6 +7,7 @@
 #include <QHash>
 #include <QDebug>
 #include <qmath.h>
+#include <QQueue>
 
 class Board
 {
@@ -15,10 +16,10 @@ public:
     ~Board();
 
     bool contains_register(quint16 address){return readonly.count(address);}
-
-    bool is_signed(quint16 address)        {return sign.contains(address) ? sign[address] : false;}
-    bool read_only(quint16 address)        {return readonly.contains(address) ? readonly[address] : false;}
-    bool range_correction(quint16 address) {return rangecorr.contains(address) ? rangecorr[address] : false;}
+    bool is_FIFO          (quint16 address){return FIFOs.contains(address);}
+    bool is_signed        (quint16 address){return sign.contains(address) ? sign[address] : false;}
+    bool read_only        (quint16 address){return readonly.contains(address) ? readonly[address] : false;}
+    bool range_correction (quint16 address){return rangecorr.contains(address) ? rangecorr[address] : false;}
 
     void set_board_name(QString nm)        {Board_name = nm;}
 
@@ -47,18 +48,21 @@ public:
             return "0x00000000";
     }
 
+    QQueue<quint32>* get_FIFO_pointer(quint16 address){
+        return &FIFOs[address];
+    }
+
 
 private:
     QString Board_name, message;
-    QHash<quint16, bool> readonly;
-    QHash<quint16, bool> sign;
-    QHash<quint16, bool> rangecorr;
-    QHash<quint16, quint32> UpperMask;
-    QHash<quint16, quint32> LowerMask;
+    QMap <quint16, bool> readonly;
+    QMap <quint16, bool> sign;
+    QMap <quint16, bool> rangecorr;
+    QMap <quint16, quint32> UpperMask;
+    QMap <quint16, quint32> LowerMask;
+    QMap <quint16, QQueue<quint32>> FIFOs;
 
     void config_read(QTextStream *, quint16 start = 0x0);
-
-
 
 };
 

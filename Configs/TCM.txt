@@ -1,6 +1,6 @@
 mask : 11
 /* This is configuration file to registers restriction in IPbus-target emulator.
-_________________________________Descryption:_____________________________________
+_________________________________Decryption:_____________________________________
 #RA - REGISTER ADDRESS: The address of register in address space to restrict.
 
 #RO - READ ONLY: 	Set 1 if this register for read only (Set 0 if not).

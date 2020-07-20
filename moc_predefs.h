@@ -342,20 +342,27 @@
 #define __clang_minor__ 0
 #define __clang_patchlevel__ 1
 #define __clang_version__ "7.0.1 (tags/RELEASE_701/final)"
-#define __cplusplus 201103L
+#define __cplusplus 201402L
+#define __cpp_aggregate_nsdmi 201304L
 #define __cpp_alias_templates 200704L
 #define __cpp_attributes 200809L
-#define __cpp_constexpr 200704
+#define __cpp_binary_literals 201304L
+#define __cpp_constexpr 201304L
 #define __cpp_decltype 200707L
+#define __cpp_decltype_auto 201304L
 #define __cpp_delegating_constructors 200604L
+#define __cpp_digit_separators 201309L
 #define __cpp_exceptions 199711L
+#define __cpp_generic_lambdas 201304L
 #define __cpp_inheriting_constructors 201511L
+#define __cpp_init_captures 201304L
 #define __cpp_initializer_lists 200806L
 #define __cpp_lambdas 200907L
 #define __cpp_nsdmi 200809L
 #define __cpp_range_based_for 200907
 #define __cpp_raw_strings 200710L
 #define __cpp_ref_qualifiers 200710L
+#define __cpp_return_type_deduction 201304L
 #define __cpp_rtti 199711L
 #define __cpp_rvalue_references 200610L
 #define __cpp_static_assert 200410
@@ -363,6 +370,7 @@
 #define __cpp_unicode_characters 200704L
 #define __cpp_unicode_literals 200710L
 #define __cpp_user_defined_literals 200809L
+#define __cpp_variable_templates 201304L
 #define __cpp_variadic_templates 200704L
 #define __gnu_linux__ 1
 #define __k8 1

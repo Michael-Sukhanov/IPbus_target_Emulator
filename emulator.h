@@ -3,18 +3,19 @@
 
 #include <QtNetwork/QUdpSocket>
 #include <IPbusHeaders.h>
-#include <board.h>
 #include <QDebug>
-#include <QQueue>
 #include <QTime>
 #include <QDate>
 #include <qmath.h>
+#include <EventHandler.h>
+
 
 const quint16 maxWordsPerPacket = 368; // Максимальное число 32 битных слов в пакете ограничено MTU
-const quint32 FIFO_adress = 0x00001014;// Адресс FIFO регистра - один такой
+//const quint32 FIFO_adress = 0x00001014;// Адресс FIFO регистра - один такой
 const quint8 Word_size = sizeof(quint32);// Все слова 32-битные, значит и размер слова 32 бита
 
-class Emulator{   
+class Emulator:public QObject{
+    Q_OBJECT
 public:
     Emulator();
     ~Emulator();
@@ -22,7 +23,7 @@ public:
     char* get_response(){return Presponse;}
     quint32 response[maxWordsPerPacket];//Ответный пакет
     quint16 Response_Size(){return responseSize;} //Получение размера ответного пакета. Не нужна???
-    quint32* Get_info(){return adress_space;}// Получение данных из регистров
+    quint32* Get_info(){return &adress_space[0];}// Получение данных из регистров
     void Prepare_response(); // Формирование ответа на основе запроса
     void Clear_response(){responseSize = 0;} // Функция, подготовки response к следующей отправке
     quint32 request[maxWordsPerPacket]; // Пакет запроса
@@ -66,9 +67,10 @@ public:
         return Packet_log_message;}
 
     bool set_board(QString filename, QString Name = "New Board"){
+//        qDebug()<<"Setting board";
         bd.set_board_name(Name);
         if(bd.set_regulations(filename)){
-          for(quint32 address = 0; address < 0x10000; ++address)
+          for(quint32 address = 0; address < sizeof(TypeFEE) / 4; ++address)
               if(bd.contains_register(quint16(address)))
                   bd.set_registers(Get_info(), address, adress_space[address], "", true);
           return true;
@@ -133,13 +135,16 @@ public:
             bd.set_registers(Get_info(), quint16(add), Get_info()[add]);
         return true;
     }
+signals:
+    void ValueChanged(quint16);
+    void FIFOchanged(quint16);
 
 
 private:
-    quint32 adress_space[65536]; // адрессное пространство, где хранятся все записанные по умолчанию регистры
+    TypeFEE adress_space; // адрессное пространство, где хранятся все записанные по умолчанию регистры
     bool ready_to_send_response = true; //false если пакет из сокета не соответствует протоколу IPbus
     quint16 NextPacketID = 1;
-    QQueue<quint32> FIFO_queue; // FIFO ячейка, находящаяся по адресу 0x00001014
+//    QQueue<quint32> FIFO_queue; // FIFO ячейка, находящаяся по адресу 0x00001014
     quint16 counter = 0; //Пересчет обработанных слов в request
     quint32* buffer_responses = new quint32[maxWordsPerPacket * 16]; // FTM может хранить 16 пакетов одновременно, поэтому буфер будет таким
     //Для обращеня к буферу использую Хеш-таблицы
@@ -153,6 +158,8 @@ private:
     bool littleEndian = true;
 
     Board bd;
+
+    EventHandler* hlr;
 
 
     //Загрузка пакета из буфера в ответный пакет
@@ -190,13 +197,13 @@ private:
     void clear_log(){
         littleEndian = true;
         Packet_log_message = "";
+//        qDebug()<<"Log cleared";
     }
 
     void regs_to_zero(){
-        for(quint32 address = 0; address < 0x10000; ++address)
+        for(quint32 address = 0; address < sizeof (TypeFEE) / 4; ++address)
             adress_space[address] = 0;
     }
-
 
 };
 
