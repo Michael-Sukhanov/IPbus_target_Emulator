@@ -54,7 +54,7 @@ void Board::set_registers(quint32 *reg, quint16 address, quint32 value, QString 
                     reg[address] = get_Lower_mask(address);
                     corrected = true;
                 }
-                else if(value > get_upper_mask(address)){
+                else if(qint32(value) > qint32(get_upper_mask(address))){
                     reg[address] = get_upper_mask(address);
                     corrected = true;
                 }

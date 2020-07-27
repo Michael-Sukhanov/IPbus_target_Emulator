@@ -69,6 +69,11 @@ MainWindow::MainWindow(QWidget *parent)
            menuBar()->hide();
            toolBar->show();
      }});
+    connect(&obj, &Emulator::Message, this, [=](QString Message){
+        QMessageBox::warning(this, QCoreApplication::applicationName(),
+                                        Message);
+
+    });
 
     ui->AdresslineEdit->installEventFilter(this);
     toolBar->hide();

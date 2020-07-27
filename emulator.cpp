@@ -3,6 +3,7 @@
 Emulator::Emulator(){
     hlr = new EventHandler(&adress_space, &bd);
     connect(this, SIGNAL(ValueChanged(quint16)), hlr, SLOT(handle(quint16)));
+    connect(this, SIGNAL(FIFOchanged(quint16)), hlr, SLOT(handle_FIFO(quint16)));
     logFile.setFileName("Logs/" + QCoreApplication::applicationName() + '_' + QDate::currentDate().toString("yyyy-MM-dd") + ".log");
     logFile.open(QFile::WriteOnly | QIODevice::Append | QFile::Text);
     logStream.setDevice(&logFile);
@@ -193,7 +194,8 @@ void Emulator::Write_transaction(TransactionHeader th){
         }else{
             read_only = bd.read_only(quint16(request[counter + 1] + i)) || bd.is_FIFO(quint16(request[counter + 1] + i));
             bd.set_registers(Get_info(), quint16(request[counter + 1] + i),  request[counter + 2 + i]);
-            emit ValueChanged(quint16(request[counter + 1] + i));
+             if(!read_only)
+                 emit ValueChanged(quint16(request[counter + 1] + i));
             log(bd.get_message());
             th.InfoCode = read_only ? 0x5 : 0x0;
             if(read_only){
@@ -209,6 +211,7 @@ void Emulator::Write_transaction(TransactionHeader th){
 
 void Emulator::Read_transaction(TransactionHeader th){
     bool error_on_read = false;
+    quint32 base_address = request[counter + 1];
     th.InfoCode = 0;
     for(quint8 i = 0; i < th.Words; ++i){
         if(responseSize / 4 + i + 1 == maxWordsPerPacket){
@@ -217,10 +220,15 @@ void Emulator::Read_transaction(TransactionHeader th){
             error_on_read = true;
             break;
         }
-        response[responseSize / 4 + 1 + i] = bd.is_FIFO(quint16(request[counter +1] + i)) ?
-                    bd.get_FIFO_pointer(quint16(request[counter +1] + i))->dequeue() : adress_space[quint16(request[counter +1] + i)];
-        if(bd.is_FIFO(quint16(request[counter +1] + i)))
-            emit FIFOchanged(quint16(request[counter +1] + i));
+        if(bd.is_FIFO(quint16(base_address + i))){
+            response[responseSize / 4 + 1 + i] = bd.get_FIFO_pointer(quint16(base_address + i))->isEmpty() ?
+                        0 : bd.get_FIFO_pointer(quint16(base_address + i))->head();
+            emit Message("Read from FIFO attempt");
+        }
+        else
+            response[responseSize / 4 + 1 + i] = adress_space[quint16(base_address + i)];
+
+
     }
     response[responseSize / 4] = quint32(th);
     log("reading " + Words(th.Words) + " words from " + Hex(request[counter + 1]) + (error_on_read ? ": bus error on read" :" (sequental)"));
