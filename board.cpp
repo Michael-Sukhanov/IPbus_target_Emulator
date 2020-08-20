@@ -41,6 +41,7 @@ bool Board::set_regulations(QString filename){
     }
     config_read(&in);
     file.close();
+    emit config_changed();
     return true;
 }
 //create_mode установка значений регистров в диапазоне при загрузке файла кнфигурации

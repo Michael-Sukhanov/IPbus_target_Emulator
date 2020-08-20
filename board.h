@@ -9,8 +9,9 @@
 #include <qmath.h>
 #include <QQueue>
 
-class Board
+class Board : public QObject
 {
+    Q_OBJECT
 public:
     Board();
     ~Board();
@@ -52,6 +53,8 @@ public:
         return &FIFOs[address];
     }
 
+signals:
+    void config_changed();
 
 private:
     QString Board_name, message;

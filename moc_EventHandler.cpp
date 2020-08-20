@@ -172,10 +172,10 @@ static const uint qt_meta_data_Laser[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,   19,    2, 0x06 /* Public */,
+       1,    0,   19,    2, 0x06 /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::UInt, QMetaType::UInt,    2,    2,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -186,19 +186,20 @@ void Laser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         auto *_t = static_cast<Laser *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->LaserFlash((*reinterpret_cast< quint32(*)>(_a[1])),(*reinterpret_cast< quint32(*)>(_a[2]))); break;
+        case 0: _t->LaserFlash(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (Laser::*)(quint32 , quint32 );
+            using _t = void (Laser::*)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Laser::LaserFlash)) {
                 *result = 0;
                 return;
             }
         }
     }
+    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject Laser::staticMetaObject = { {
@@ -242,14 +243,13 @@ int Laser::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Laser::LaserFlash(quint32 _t1, quint32 _t2)
+void Laser::LaserFlash()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 struct qt_meta_stringdata_EventHandler_t {
-    QByteArrayData data[12];
-    char stringdata0[119];
+    QByteArrayData data[22];
+    char stringdata0[233];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -263,18 +263,32 @@ QT_MOC_LITERAL(1, 13, 6), // "handle"
 QT_MOC_LITERAL(2, 20, 0), // ""
 QT_MOC_LITERAL(3, 21, 7), // "address"
 QT_MOC_LITERAL(4, 29, 11), // "handle_FIFO"
-QT_MOC_LITERAL(5, 41, 12), // "LaserHandler"
-QT_MOC_LITERAL(6, 54, 5), // "N_CFD"
-QT_MOC_LITERAL(7, 60, 5), // "N_TRG"
-QT_MOC_LITERAL(8, 66, 18), // "FIFOCountersFiller"
-QT_MOC_LITERAL(9, 85, 16), // "BC_ORBIT_MONITOR"
-QT_MOC_LITERAL(10, 102, 9), // "CRU_ORBIT"
-QT_MOC_LITERAL(11, 112, 6) // "CRU_BC"
+QT_MOC_LITERAL(5, 41, 11), // "ReadHandler"
+QT_MOC_LITERAL(6, 53, 12), // "LaserHandler"
+QT_MOC_LITERAL(7, 66, 18), // "FIFOCountersFiller"
+QT_MOC_LITERAL(8, 85, 16), // "BC_ORBIT_MONITOR"
+QT_MOC_LITERAL(9, 102, 9), // "CRU_ORBIT"
+QT_MOC_LITERAL(10, 112, 6), // "CRU_BC"
+QT_MOC_LITERAL(11, 119, 11), // "init_values"
+QT_MOC_LITERAL(12, 131, 21), // "init_TCM_channel_mask"
+QT_MOC_LITERAL(13, 153, 12), // "mask_changed"
+QT_MOC_LITERAL(14, 166, 4), // "Side"
+QT_MOC_LITERAL(15, 171, 2), // "sd"
+QT_MOC_LITERAL(16, 174, 12), // "contains_bit"
+QT_MOC_LITERAL(17, 187, 4), // "mask"
+QT_MOC_LITERAL(18, 192, 3), // "pos"
+QT_MOC_LITERAL(19, 196, 12), // "HDMIlinks_ok"
+QT_MOC_LITERAL(20, 209, 18), // "write_to_avail_PMs"
+QT_MOC_LITERAL(21, 228, 4) // "data"
 
     },
     "EventHandler\0handle\0\0address\0handle_FIFO\0"
-    "LaserHandler\0N_CFD\0N_TRG\0FIFOCountersFiller\0"
-    "BC_ORBIT_MONITOR\0CRU_ORBIT\0CRU_BC"
+    "ReadHandler\0LaserHandler\0FIFOCountersFiller\0"
+    "BC_ORBIT_MONITOR\0CRU_ORBIT\0CRU_BC\0"
+    "init_values\0init_TCM_channel_mask\0"
+    "mask_changed\0Side\0sd\0contains_bit\0"
+    "mask\0pos\0HDMIlinks_ok\0write_to_avail_PMs\0"
+    "data"
 };
 #undef QT_MOC_LITERAL
 
@@ -284,7 +298,7 @@ static const uint qt_meta_data_EventHandler[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -292,18 +306,32 @@ static const uint qt_meta_data_EventHandler[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   39,    2, 0x0a /* Public */,
-       4,    1,   42,    2, 0x0a /* Public */,
-       5,    2,   45,    2, 0x08 /* Private */,
-       8,    0,   50,    2, 0x08 /* Private */,
-       9,    2,   51,    2, 0x08 /* Private */,
+       1,    1,   74,    2, 0x0a /* Public */,
+       4,    1,   77,    2, 0x0a /* Public */,
+       5,    1,   80,    2, 0x0a /* Public */,
+       6,    0,   83,    2, 0x08 /* Private */,
+       7,    0,   84,    2, 0x08 /* Private */,
+       8,    2,   85,    2, 0x08 /* Private */,
+      11,    0,   90,    2, 0x08 /* Private */,
+      12,    0,   91,    2, 0x08 /* Private */,
+      13,    1,   92,    2, 0x08 /* Private */,
+      16,    2,   95,    2, 0x08 /* Private */,
+      19,    1,  100,    2, 0x08 /* Private */,
+      20,    2,  103,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::UShort,    3,
     QMetaType::Void, QMetaType::UShort,    3,
-    QMetaType::Void, QMetaType::UInt, QMetaType::UInt,    6,    7,
+    QMetaType::Void, QMetaType::UShort,    3,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::UInt, QMetaType::UShort,   10,   11,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::UInt, QMetaType::UShort,    9,   10,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 14,   15,
+    QMetaType::Bool, QMetaType::UInt, QMetaType::UChar,   17,   18,
+    QMetaType::Bool, 0x80000000 | 14,   15,
+    QMetaType::Void, QMetaType::UInt, QMetaType::UShort,   21,    3,
 
        0        // eod
 };
@@ -316,9 +344,18 @@ void EventHandler::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         switch (_id) {
         case 0: _t->handle((*reinterpret_cast< quint16(*)>(_a[1]))); break;
         case 1: _t->handle_FIFO((*reinterpret_cast< quint16(*)>(_a[1]))); break;
-        case 2: _t->LaserHandler((*reinterpret_cast< quint32(*)>(_a[1])),(*reinterpret_cast< quint32(*)>(_a[2]))); break;
-        case 3: _t->FIFOCountersFiller(); break;
-        case 4: _t->BC_ORBIT_MONITOR((*reinterpret_cast< quint32(*)>(_a[1])),(*reinterpret_cast< quint16(*)>(_a[2]))); break;
+        case 2: _t->ReadHandler((*reinterpret_cast< quint16(*)>(_a[1]))); break;
+        case 3: _t->LaserHandler(); break;
+        case 4: _t->FIFOCountersFiller(); break;
+        case 5: _t->BC_ORBIT_MONITOR((*reinterpret_cast< quint32(*)>(_a[1])),(*reinterpret_cast< quint16(*)>(_a[2]))); break;
+        case 6: _t->init_values(); break;
+        case 7: _t->init_TCM_channel_mask(); break;
+        case 8: _t->mask_changed((*reinterpret_cast< Side(*)>(_a[1]))); break;
+        case 9: { bool _r = _t->contains_bit((*reinterpret_cast< quint32(*)>(_a[1])),(*reinterpret_cast< quint8(*)>(_a[2])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 10: { bool _r = _t->HDMIlinks_ok((*reinterpret_cast< Side(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 11: _t->write_to_avail_PMs((*reinterpret_cast< quint32(*)>(_a[1])),(*reinterpret_cast< quint16(*)>(_a[2]))); break;
         default: ;
         }
     }
@@ -353,13 +390,13 @@ int EventHandler::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 12)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 12;
     }
     return _id;
 }

@@ -21,7 +21,17 @@ struct HDMIlinkStatus {
         line3signalLost     : 1,
         line3signalStable	: 1,
         linkOK              : 1;
+    HDMIlinkStatus& operator=(const quint32 &val){
+        *reinterpret_cast<quint32 *>(this) = val;
+        return *this;
+    }
+    operator quint32(){return *reinterpret_cast<quint32 *>(this);
+    }
+
 };
+
+const quint32 Ok_link =0xD5D25150;
+const quint32 Bad_link=0x30B03030;
 
 struct TypePM{
     quint32 OR_GATE      : 8,           //┐
@@ -150,7 +160,8 @@ struct TypeFEE{
         quint32 CH_MASK_A       :10, //┐
                                 : 7, //│
                 syncErrorInLinkA:10, //│
-                sideAenabled    : 1, //│1A
+                                : 1, //│1A
+                sideAenabled    : 1, //│
                 delayRangeErrorA: 1, //│
                 readinessChangeA: 1, //│
                 sideAready      : 1, //┘
@@ -164,6 +175,7 @@ struct TypeFEE{
         quint32 CH_MASK_C       :10, //┐
                                 : 7, //│
                 syncErrorInLinkC:10, //│
+                                : 1, //│
                 sideCenabled    : 1, //│3A
                 delayRangeErrorC: 1, //│
                 readinessChangeC: 1, //│
@@ -236,9 +248,6 @@ struct TypeFEE{
         TypePM  PM[20];
         quint32 &operator[] (quint16 address){
             return *(reinterpret_cast<quint32 *>(this) + address);}
-
-
-
 };
 
 

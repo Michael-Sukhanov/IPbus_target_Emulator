@@ -25,6 +25,7 @@ HEADERS += \
     EventHandler.h \
     FEE.h \
     IPbusHeaders.h \
+    Temperature.h \
     board.h \
     emulator.h \
     gbt.h \

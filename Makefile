@@ -57,6 +57,7 @@ SOURCES       = board.cpp \
 		main.cpp \
 		mainwindow.cpp qrc_resources.cpp \
 		moc_EventHandler.cpp \
+		moc_board.cpp \
 		moc_emulator.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = board.o \
@@ -65,6 +66,7 @@ OBJECTS       = board.o \
 		mainwindow.o \
 		qrc_resources.o \
 		moc_EventHandler.o \
+		moc_board.o \
 		moc_emulator.o \
 		moc_mainwindow.o
 DIST          = ../Qt/5.13.0/gcc_64/mkspecs/features/spec_pre.prf \
@@ -265,6 +267,7 @@ DIST          = ../Qt/5.13.0/gcc_64/mkspecs/features/spec_pre.prf \
 		Reciever.pro EventHandler.h \
 		FEE.h \
 		IPbusHeaders.h \
+		Temperature.h \
 		board.h \
 		emulator.h \
 		gbt.h \
@@ -694,7 +697,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../Qt/5.13.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents EventHandler.h FEE.h IPbusHeaders.h board.h emulator.h gbt.h mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents EventHandler.h FEE.h IPbusHeaders.h Temperature.h board.h emulator.h gbt.h mainwindow.h $(DISTDIR)/
 	$(COPY_FILE) --parents board.cpp emulator.cpp main.cpp mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
@@ -747,9 +750,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../Qt/5.13.0/gcc_64/mkspecs/features/data/dummy.cpp
 	clang++ -pipe -O2 -Wall -W -dM -E -o moc_predefs.h ../Qt/5.13.0/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_EventHandler.cpp moc_emulator.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_EventHandler.cpp moc_board.cpp moc_emulator.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_EventHandler.cpp moc_emulator.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_EventHandler.cpp moc_board.cpp moc_emulator.cpp moc_mainwindow.cpp
 moc_EventHandler.cpp: EventHandler.h \
 		board.h \
 		../Qt/5.13.0/gcc_64/include/QtCore/QtGlobal \
@@ -1018,9 +1021,89 @@ moc_EventHandler.cpp: EventHandler.h \
 		../Qt/5.13.0/gcc_64/include/QtNetwork/qsslkey.h \
 		../Qt/5.13.0/gcc_64/include/QtNetwork/qudpsocket.h \
 		../Qt/5.13.0/gcc_64/include/QtNetwork/qtnetworkversion.h \
+		Temperature.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/QRandomGenerator \
 		moc_predefs.h \
 		../Qt/5.13.0/gcc_64/bin/moc
 	/home/salem/Qt/5.13.0/gcc_64/bin/moc $(DEFINES) --include /home/salem/QIPbus_Emulator_v3/moc_predefs.h -I/home/salem/Qt/5.13.0/gcc_64/mkspecs/linux-clang -I/home/salem/QIPbus_Emulator_v3 -I/home/salem/Qt/5.13.0/gcc_64/include -I/home/salem/Qt/5.13.0/gcc_64/include/QtWidgets -I/home/salem/Qt/5.13.0/gcc_64/include/QtGui -I/home/salem/Qt/5.13.0/gcc_64/include/QtNetwork -I/home/salem/Qt/5.13.0/gcc_64/include/QtCore -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IE:/Qt/Tools/mingw730_32/i686-w64-mingw32/include EventHandler.h -o moc_EventHandler.cpp
+
+moc_board.cpp: board.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/QtGlobal \
+		../Qt/5.13.0/gcc_64/include/QtCore/qglobal.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qconfig.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qtcore-config.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qsystemdetection.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qprocessordetection.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qtypeinfo.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qsysinfo.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qlogging.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qflags.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qatomic.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qbasicatomic.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qgenericatomic.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qglobalstatic.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qmutex.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qnumeric.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qversiontagging.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/QFile \
+		../Qt/5.13.0/gcc_64/include/QtCore/qfile.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qfiledevice.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qiodevice.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qobject.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qnamespace.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qstring.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qchar.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qbytearray.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qrefcount.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qarraydata.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qstringliteral.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qstringview.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qstringbuilder.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qlist.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qalgorithms.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qiterator.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qhashfunctions.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qpair.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qvector.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qpoint.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qbytearraylist.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qstringlist.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qregexp.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qstringmatcher.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qcoreevent.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qscopedpointer.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qmetatype.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qobject_impl.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/QTextStream \
+		../Qt/5.13.0/gcc_64/include/QtCore/qtextstream.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qlocale.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qvariant.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qmap.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qdebug.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qhash.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qset.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qshareddata.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/QHash \
+		../Qt/5.13.0/gcc_64/include/QtCore/QDebug \
+		../Qt/5.13.0/gcc_64/include/QtCore/qmath.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/QQueue \
+		../Qt/5.13.0/gcc_64/include/QtCore/qqueue.h \
+		moc_predefs.h \
+		../Qt/5.13.0/gcc_64/bin/moc
+	/home/salem/Qt/5.13.0/gcc_64/bin/moc $(DEFINES) --include /home/salem/QIPbus_Emulator_v3/moc_predefs.h -I/home/salem/Qt/5.13.0/gcc_64/mkspecs/linux-clang -I/home/salem/QIPbus_Emulator_v3 -I/home/salem/Qt/5.13.0/gcc_64/include -I/home/salem/Qt/5.13.0/gcc_64/include/QtWidgets -I/home/salem/Qt/5.13.0/gcc_64/include/QtGui -I/home/salem/Qt/5.13.0/gcc_64/include/QtNetwork -I/home/salem/Qt/5.13.0/gcc_64/include/QtCore -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IE:/Qt/Tools/mingw730_32/i686-w64-mingw32/include board.h -o moc_board.cpp
 
 moc_emulator.cpp: emulator.h \
 		../Qt/5.13.0/gcc_64/include/QtNetwork/QUdpSocket \
@@ -1294,6 +1377,8 @@ moc_emulator.cpp: emulator.h \
 		../Qt/5.13.0/gcc_64/include/QtCore/QQueue \
 		FEE.h \
 		gbt.h \
+		Temperature.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/QRandomGenerator \
 		moc_predefs.h \
 		../Qt/5.13.0/gcc_64/bin/moc
 	/home/salem/Qt/5.13.0/gcc_64/bin/moc $(DEFINES) --include /home/salem/QIPbus_Emulator_v3/moc_predefs.h -I/home/salem/Qt/5.13.0/gcc_64/mkspecs/linux-clang -I/home/salem/QIPbus_Emulator_v3 -I/home/salem/Qt/5.13.0/gcc_64/include -I/home/salem/Qt/5.13.0/gcc_64/include/QtWidgets -I/home/salem/Qt/5.13.0/gcc_64/include/QtGui -I/home/salem/Qt/5.13.0/gcc_64/include/QtNetwork -I/home/salem/Qt/5.13.0/gcc_64/include/QtCore -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IE:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IE:/Qt/Tools/mingw730_32/i686-w64-mingw32/include emulator.h -o moc_emulator.cpp
@@ -1834,6 +1919,8 @@ moc_mainwindow.cpp: mainwindow.h \
 		../Qt/5.13.0/gcc_64/include/QtCore/QQueue \
 		FEE.h \
 		gbt.h \
+		Temperature.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/QRandomGenerator \
 		../Qt/5.13.0/gcc_64/include/QtWidgets/QShortcut \
 		moc_predefs.h \
 		../Qt/5.13.0/gcc_64/bin/moc
@@ -2207,7 +2294,9 @@ emulator.o: emulator.cpp emulator.h \
 		../Qt/5.13.0/gcc_64/include/QtCore/QTextStream \
 		../Qt/5.13.0/gcc_64/include/QtCore/QQueue \
 		FEE.h \
-		gbt.h
+		gbt.h \
+		Temperature.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/QRandomGenerator
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o emulator.o emulator.cpp
 
 main.o: main.cpp mainwindow.h \
@@ -2746,6 +2835,8 @@ main.o: main.cpp mainwindow.h \
 		../Qt/5.13.0/gcc_64/include/QtCore/QQueue \
 		FEE.h \
 		gbt.h \
+		Temperature.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/QRandomGenerator \
 		../Qt/5.13.0/gcc_64/include/QtWidgets/QShortcut \
 		../Qt/5.13.0/gcc_64/include/QtWidgets/QApplication
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
@@ -3286,20 +3377,10 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../Qt/5.13.0/gcc_64/include/QtCore/QQueue \
 		FEE.h \
 		gbt.h \
+		Temperature.h \
+		../Qt/5.13.0/gcc_64/include/QtCore/QRandomGenerator \
 		../Qt/5.13.0/gcc_64/include/QtWidgets/QShortcut \
-		ui_mainwindow.h \
-		../Qt/5.13.0/gcc_64/include/QtCore/QLocale \
-		../Qt/5.13.0/gcc_64/include/QtGui/QIcon \
-		../Qt/5.13.0/gcc_64/include/QtWidgets/QApplication \
-		../Qt/5.13.0/gcc_64/include/QtWidgets/QCheckBox \
-		../Qt/5.13.0/gcc_64/include/QtWidgets/QGridLayout \
-		../Qt/5.13.0/gcc_64/include/QtWidgets/QHBoxLayout \
-		../Qt/5.13.0/gcc_64/include/QtWidgets/QLabel \
-		../Qt/5.13.0/gcc_64/include/QtWidgets/QLineEdit \
-		../Qt/5.13.0/gcc_64/include/QtWidgets/QMenuBar \
-		../Qt/5.13.0/gcc_64/include/QtWidgets/QPushButton \
-		../Qt/5.13.0/gcc_64/include/QtWidgets/QStatusBar \
-		../Qt/5.13.0/gcc_64/include/QtWidgets/QTextEdit
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 qrc_resources.o: qrc_resources.cpp 
@@ -3307,6 +3388,9 @@ qrc_resources.o: qrc_resources.cpp
 
 moc_EventHandler.o: moc_EventHandler.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_EventHandler.o moc_EventHandler.cpp
+
+moc_board.o: moc_board.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_board.o moc_board.cpp
 
 moc_emulator.o: moc_emulator.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_emulator.o moc_emulator.cpp

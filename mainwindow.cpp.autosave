@@ -131,14 +131,14 @@ bool MainWindow::eventFilter(QObject * obj, QEvent* event){
     bool ok;
     quint16 address = (ui->AdresslineEdit->text()).toUtf8().toUInt(&ok, 16);
     if (obj == ui->AdresslineEdit){
-        if (event->type() == QEvent::KeyPress || event->type() == (QEvent::KeyRelease)){
+        if (event->type() == QEvent::KeyPress){
             QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
             if (keyEvent->key() == Qt::Key_Up){
-                 ui->AdresslineEdit->setText(Emulator::Hex(address + (event->type() == (QEvent::KeyRelease + QEvent::KeyPress) ? 0xF : 1)).right(4));
+                 ui->AdresslineEdit->setText(Emulator::Hex(address + 1).right(4));
                  return true;
             }
             else if(keyEvent->key() == Qt::Key_Down){
-                ui->AdresslineEdit->setText(Emulator::Hex(address - (event->type() == (QEvent::KeyRelease + QEvent::KeyPress) ? 0xF : 1)).right(4));
+                ui->AdresslineEdit->setText(Emulator::Hex(address - 1).right(4));
                 return true;
             }
         }

@@ -138,6 +138,7 @@ public:
 signals:
     void ValueChanged(quint16);
     void FIFOchanged(quint16);
+    void RegisterRead(quint16);
     void Message(QString);
 
 

@@ -4,6 +4,7 @@ Emulator::Emulator(){
     hlr = new EventHandler(&adress_space, &bd);
     connect(this, SIGNAL(ValueChanged(quint16)), hlr, SLOT(handle(quint16)));
     connect(this, SIGNAL(FIFOchanged(quint16)), hlr, SLOT(handle_FIFO(quint16)));
+    connect(this, SIGNAL(RegisterRead(quint16)), hlr, SLOT(ReadHandler(quint16)));
     logFile.setFileName("Logs/" + QCoreApplication::applicationName() + '_' + QDate::currentDate().toString("yyyy-MM-dd") + ".log");
     logFile.open(QFile::WriteOnly | QIODevice::Append | QFile::Text);
     logStream.setDevice(&logFile);
@@ -211,7 +212,7 @@ void Emulator::Write_transaction(TransactionHeader th){
 
 void Emulator::Read_transaction(TransactionHeader th){
     bool error_on_read = false;
-    quint32 base_address = request[counter + 1];
+    quint16 base_address = quint16(request[counter + 1]);
     th.InfoCode = 0;
     for(quint8 i = 0; i < th.Words; ++i){
         if(responseSize / 4 + i + 1 == maxWordsPerPacket){
@@ -220,15 +221,15 @@ void Emulator::Read_transaction(TransactionHeader th){
             error_on_read = true;
             break;
         }
-        if(bd.is_FIFO(quint16(base_address + i))){
-            response[responseSize / 4 + 1 + i] = bd.get_FIFO_pointer(quint16(base_address + i))->isEmpty() ?
-                        0 : bd.get_FIFO_pointer(quint16(base_address + i))->head();
+        if(bd.is_FIFO(base_address + i)){
+            response[responseSize / 4 + 1 + i] = bd.get_FIFO_pointer(base_address + i)->isEmpty() ?
+                        0 : bd.get_FIFO_pointer(base_address + i)->head();
             emit Message("Read from FIFO attempt");
         }
-        else
-            response[responseSize / 4 + 1 + i] = adress_space[quint16(base_address + i)];
-
-
+        else{
+            response[responseSize / 4 + 1 + i] = adress_space[base_address + i];
+            emit RegisterRead(base_address + i);
+        }
     }
     response[responseSize / 4] = quint32(th);
     log("reading " + Words(th.Words) + " words from " + Hex(request[counter + 1]) + (error_on_read ? ": bus error on read" :" (sequental)"));
@@ -288,11 +289,12 @@ void Emulator::Non_Incrementing_write_transaction(TransactionHeader th){
             // Если Base Adress не соответствует FIFO адрессу, то в регистр записывается последнее слово в транзакции (рано или поздно)
             for(quint32 i = 0; i<th.Words; i++){
                 bd.set_registers(Get_info(), regAddrtoWrite,  request[counter + 2 + i], " (non-incrementing)");
+                emit ValueChanged(regAddrtoWrite);
                 log(bd.get_message());
                 if(bd.read_only(regAddrtoWrite))
                     break;
             }
-            emit ValueChanged(regAddrtoWrite);
+
     }
     // Ответная транзакция состоит из одного заголовка, поэтому увеличиваем размер только на одно 32-битное слово
     responseSize += Word_size;

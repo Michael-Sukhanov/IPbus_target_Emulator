@@ -1,4 +1,4 @@
-mask : 11
+mask : 0x00401
 /* This is configuration file to registers restriction in IPbus-target emulator.
 _________________________________Decryption:_____________________________________
 #RA - REGISTER ADDRESS: The address of register in address space to restrict.
