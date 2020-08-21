@@ -32,17 +32,17 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QTextEdit *Adresses_textEdit;
     QTextEdit *textEdit_log;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label;
+    QCheckBox *checkBox;
     QPushButton *pushButton;
+    QTextEdit *Adresses_textEdit;
     QHBoxLayout *horizontalLayout;
     QLabel *label_5;
     QLineEdit *AdresslineEdit;
     QPushButton *pushButton_info;
     QPushButton *pushButton_2;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *label;
-    QCheckBox *checkBox;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -50,41 +50,70 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(758, 422);
+        MainWindow->resize(758, 434);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        Adresses_textEdit = new QTextEdit(centralwidget);
-        Adresses_textEdit->setObjectName(QString::fromUtf8("Adresses_textEdit"));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(Adresses_textEdit->sizePolicy().hasHeightForWidth());
-        Adresses_textEdit->setSizePolicy(sizePolicy);
-        Adresses_textEdit->setMinimumSize(QSize(200, 180));
-        Adresses_textEdit->setMaximumSize(QSize(200, 16777215));
-        Adresses_textEdit->setReadOnly(true);
-
-        gridLayout->addWidget(Adresses_textEdit, 2, 1, 1, 1);
-
         textEdit_log = new QTextEdit(centralwidget);
         textEdit_log->setObjectName(QString::fromUtf8("textEdit_log"));
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(textEdit_log->sizePolicy().hasHeightForWidth());
-        textEdit_log->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(textEdit_log->sizePolicy().hasHeightForWidth());
+        textEdit_log->setSizePolicy(sizePolicy);
         textEdit_log->setMinimumSize(QSize(400, 180));
         textEdit_log->setReadOnly(true);
 
         gridLayout->addWidget(textEdit_log, 2, 0, 1, 1);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        label = new QLabel(centralwidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Droid Sans"));
+        font.setPointSize(8);
+        font.setBold(false);
+        font.setItalic(false);
+        font.setWeight(50);
+        label->setFont(font);
+        label->setStyleSheet(QString::fromUtf8(""));
+        label->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
+        label->setTextFormat(Qt::PlainText);
+
+        horizontalLayout_2->addWidget(label);
+
+        checkBox = new QCheckBox(centralwidget);
+        checkBox->setObjectName(QString::fromUtf8("checkBox"));
+        checkBox->setEnabled(true);
+        checkBox->setLayoutDirection(Qt::RightToLeft);
+        checkBox->setChecked(true);
+        checkBox->setTristate(false);
+
+        horizontalLayout_2->addWidget(checkBox);
+
+
+        gridLayout->addLayout(horizontalLayout_2, 1, 0, 1, 1);
 
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(pushButton, 0, 0, 1, 1);
+
+        Adresses_textEdit = new QTextEdit(centralwidget);
+        Adresses_textEdit->setObjectName(QString::fromUtf8("Adresses_textEdit"));
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(Adresses_textEdit->sizePolicy().hasHeightForWidth());
+        Adresses_textEdit->setSizePolicy(sizePolicy1);
+        Adresses_textEdit->setMinimumSize(QSize(200, 180));
+        Adresses_textEdit->setMaximumSize(QSize(200, 16777215));
+        Adresses_textEdit->setReadOnly(true);
+
+        gridLayout->addWidget(Adresses_textEdit, 2, 1, 1, 1);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(0);
@@ -141,39 +170,10 @@ public:
 
         gridLayout->addLayout(horizontalLayout, 1, 1, 1, 1);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label = new QLabel(centralwidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        QFont font;
-        font.setFamily(QString::fromUtf8("Droid Sans"));
-        font.setPointSize(8);
-        font.setBold(false);
-        font.setItalic(false);
-        font.setWeight(50);
-        label->setFont(font);
-        label->setStyleSheet(QString::fromUtf8(""));
-        label->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
-        label->setTextFormat(Qt::PlainText);
-
-        horizontalLayout_2->addWidget(label);
-
-        checkBox = new QCheckBox(centralwidget);
-        checkBox->setObjectName(QString::fromUtf8("checkBox"));
-        checkBox->setEnabled(true);
-        checkBox->setLayoutDirection(Qt::RightToLeft);
-        checkBox->setChecked(true);
-        checkBox->setTristate(false);
-
-        horizontalLayout_2->addWidget(checkBox);
-
-
-        gridLayout->addLayout(horizontalLayout_2, 1, 0, 1, 1);
-
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 758, 20));
+        menubar->setGeometry(QRect(0, 0, 758, 24));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -188,6 +188,8 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         textEdit_log->setStyleSheet(QString());
+        label->setText(QCoreApplication::translate("MainWindow", "Current processes:", nullptr));
+        checkBox->setText(QCoreApplication::translate("MainWindow", "Write transactions only", nullptr));
 #if QT_CONFIG(whatsthis)
         pushButton->setWhatsThis(QCoreApplication::translate("MainWindow", "<html><head/><body><p>Start to listen to the 500001 port</p></body></html>", nullptr));
 #endif // QT_CONFIG(whatsthis)
@@ -197,8 +199,6 @@ public:
         AdresslineEdit->setText(QCoreApplication::translate("MainWindow", "0000", nullptr));
         pushButton_info->setText(QString());
         pushButton_2->setText(QString());
-        label->setText(QCoreApplication::translate("MainWindow", "Current processes:", nullptr));
-        checkBox->setText(QCoreApplication::translate("MainWindow", "Write transactions only", nullptr));
     } // retranslateUi
 
 };

@@ -55,7 +55,9 @@ MainWindow::MainWindow(QWidget *parent)
     toolBar->addAction(QIcon(":/images/Configs.png"),"&Load board configuration from...", this, SLOT(load()));
     toolBar->addAction(QIcon(":/images/Remove restrictions.png"),"&Clear restrictions", this, SLOT(clear_restrictions()));
 
+
     addToolBar(Qt::TopToolBarArea, toolBar);
+
 
     connect(info,  &QShortcut::activated, this, [=](){on_pushButton_info_clicked();});
     connect(clear, &QShortcut::activated, this, [=](){on_pushButton_2_clicked();});
@@ -131,14 +133,14 @@ bool MainWindow::eventFilter(QObject * obj, QEvent* event){
     bool ok;
     quint16 address = (ui->AdresslineEdit->text()).toUtf8().toUInt(&ok, 16);
     if (obj == ui->AdresslineEdit){
-        if (event->type() == QEvent::KeyPress || event->type() == (QEvent::KeyRelease)){
+        if (event->type() == QEvent::KeyPress){
             QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
             if (keyEvent->key() == Qt::Key_Up){
-                 ui->AdresslineEdit->setText(Emulator::Hex(address + (event->type() == (QEvent::KeyRelease + QEvent::KeyPress) ? 0xF : 1)).right(4));
+                 ui->AdresslineEdit->setText(Emulator::Hex(address + 1).right(4));
                  return true;
             }
             else if(keyEvent->key() == Qt::Key_Down){
-                ui->AdresslineEdit->setText(Emulator::Hex(address - (event->type() == (QEvent::KeyRelease + QEvent::KeyPress) ? 0xF : 1)).right(4));
+                ui->AdresslineEdit->setText(Emulator::Hex(address - 1).right(4));
                 return true;
             }
         }

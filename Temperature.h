@@ -5,6 +5,7 @@
 #include <tgmath.h>
 #include <QRandomGenerator>
 
+
 class temperature{
 
 

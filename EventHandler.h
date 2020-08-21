@@ -45,10 +45,14 @@ class Laser : public QObject{
     Q_OBJECT
 
 public:
-    Laser(){connect(&LaserMeandr, &QTimer::timeout, this, [=](){
-            for(quint8 i = 0; i < 20; ++i){
-            N_CFD_to_send[i] += N_CFD;
-            N_TRG_to_send[i] += Phase ? N_CFD : 0;
+    Laser(TypeFEE* AddressSpace){connect(&LaserMeandr, &QTimer::timeout, this, [=](){
+            for(quint8 i = 0; i < 10; ++i){
+                if(AddressSpace->PM_LINK_A[i] == Ok_link){
+                    N_CFD_to_send[i] += N_CFD;
+                    N_TRG_to_send[i] += Phase ? N_CFD : 0;}
+                if(AddressSpace->PM_LINK_C[i] == Ok_link){
+                    N_CFD_to_send[i + 10] += N_CFD;
+                    N_TRG_to_send[i + 10] += Phase ? N_CFD : 0;}
             }
             emit LaserFlash();});
             Start = randomize ? (-1024 + (QRandomGenerator::global()->generate()) % 2049) : -205;
@@ -61,8 +65,10 @@ public:
     }
 
     void PhaseControl(qint16 LASER_DELAY){
+        if(Start + Gate > 1024)
+            Phase = LASER_DELAY > Start || LASER_DELAY < -1024 + (Start + Gate - 1024);
+        else
         Phase = LASER_DELAY > Start && LASER_DELAY < Start + Gate;
-//        qDebug() << (Phase ? "Фаза найдена" : "Фаза не найдена");
     }
 
     void reset_counters(quint8 PM){N_CFD_to_send[PM] = 0; N_TRG_to_send[PM] = 0;}
@@ -96,13 +102,18 @@ class EventHandler : public QObject{
 public:
     EventHandler(TypeFEE* FEE, Board* testboard){
         bd = testboard; AddressSpace = FEE;
+        laser = new Laser(AddressSpace);
         connect(&internalTimer, &QTimer::timeout, this, [=](){
             AddressSpace->TEMPERATURE = quint32(*TCM_BOARD_temp);
             AddressSpace->FPGA_TEMP = quint32(*TCM_FPGA_temp);
             write_to_avail_PMs(quint32(*PM_BOARD_temp), 0xBC);
             write_to_avail_PMs(quint32(*PM_FPGA_temp), 0xFC);
+            AddressSpace->POWER_1V = 19565 + QRandomGenerator::global()->generate() % 4348;
+            AddressSpace->POWER_1_8V = 35217 + QRandomGenerator::global()->generate() % 7826;
+            write_to_avail_PMs(19565 + QRandomGenerator::global()->generate() % 4348, 0xFD);
+            write_to_avail_PMs(35217 + QRandomGenerator::global()->generate() % 7826, 0xFE);
             });
-        connect(&laser, SIGNAL(LaserFlash()), this, SLOT(LaserHandler()));
+        connect(laser, SIGNAL(LaserFlash()), this, SLOT(LaserHandler()));
         connect(&Update_counters, &QTimer::timeout, this, &EventHandler::FIFOCountersFiller);
         connect(&CR_unit, SIGNAL(Send_data(quint32, quint16)), this,SLOT(BC_ORBIT_MONITOR(quint32,quint16)));
         connect(bd, SIGNAL(config_changed()), this, SLOT(init_values()));}
@@ -129,7 +140,7 @@ public slots:
 private:
     TypeFEE* AddressSpace;
     Board* bd;
-    Laser laser;
+    Laser* laser;
     CRU CR_unit;
     QTimer Update_counters, internalTimer;
     temperature* TCM_BOARD_temp = new temperature(0xEB, 0.35);
@@ -143,26 +154,30 @@ private:
     void PMregHandler(quint8 PM, quint16 address){
         switch(address - (PM * 0x200)){
 //        case 0x100: --AddressSpace->PM[PM - 1].COUNTERS_FIFO_LOAD;                      break;
-        case 0x7F: {if(AddressSpace->PM[PM-1].RESET_COUNTERS)
-                        laser.reset_counters(PM - 1);
-                        AddressSpace->PM[PM-1].RESET_COUNTERS = 0;                      break;}
+        case 0xF: {if(AddressSpace->PM[PM-1].RESET_COUNTERS)
+                        laser->reset_counters(PM - 1);
+                        AddressSpace->PM[PM-1].RESET_COUNTERS = 0;                       break;}
         case 0xD8: {if(AddressSpace->PM[PM - 1].GBT.Control.RESET){
-                        AddressSpace->PM[PM - 1].GBT.Status.BCID_SYNC_MODE = 1;
-                        AddressSpace->PM[PM - 1].GBT.Control.RESET = 0;
-                        CR_unit.start();                                               }break;}
+                AddressSpace->PM[PM - 1].GBT.Status.BCID_SYNC_MODE = 1;
+                AddressSpace->PM[PM - 1].GBT.Control.RESET = 0;
+                CR_unit.start();}
+                if(AddressSpace->PM[PM - 1].GBT.Control.SEND_READOUT_COMMAND){
+                    AddressSpace->PM[PM - 1].GBT.Status.READOUT_MODE =
+                            AddressSpace->PM[PM - 1].GBT.Control.SEND_READOUT_COMMAND;
+                AddressSpace->PM[PM - 1].GBT.Control.SEND_READOUT_COMMAND = 0;         } break;}
         }
     }
 //  обработка измений значений регистров TCM
     void TCMregHandler(quint16 address){
         switch(address){
-        case 0x2 : laser.PhaseControl(AddressSpace->LASER_DELAY);                       break;
-        case 0x1B: laser.LaserControl(AddressSpace->LASER_ON, AddressSpace->LASER_DIV); break;
-        case 0x1A: mask_changed(A);                                                     break;
-        case 0x3A: mask_changed(C);                                                     break;
+        case 0x2 : laser->PhaseControl(AddressSpace->LASER_DELAY);                       break;
+        case 0x1B: laser->LaserControl(AddressSpace->LASER_ON, AddressSpace->LASER_DIV); break;
+        case 0x1A: mask_changed(A);                                                      break;
+        case 0x3A: mask_changed(C);                                                      break;
         case 0x50: {quint8 upd_mode = quint8(AddressSpace->COUNTERS_UPD_RATE) & 7;
 //                    qDebug() << upd_mode << int(update_rate[upd_mode] * 1000);
                     if(upd_mode) Update_counters.start(int(update_rate[upd_mode] * 1000));
-                    else Update_counters.stop();                                        break;}
+                    else Update_counters.stop();                                         break;}
         case 0xD8: {if(AddressSpace->GBT.Control.RESET){
                 AddressSpace->GBT.Status.BCID_SYNC_MODE = 1;
                 AddressSpace->GBT.Control.RESET = 0;
@@ -184,8 +199,8 @@ private slots:
         for(quint8 pmN = 0; pmN < 20; ++pmN)
             if(bd->contains_register((pmN + 1) * 0x200 + 0xC0))
                 for(quint8 i = 0; i < 12; ++ i){
-                    AddressSpace->PM[pmN].Counters[i].CNT_CFD = quint32(lround(laser.N_CFD_to_send[pmN]));
-                    AddressSpace->PM[pmN].Counters[i].CNT_TRG = quint32(lround(laser.N_TRG_to_send[pmN]));
+                    AddressSpace->PM[pmN].Counters[i].CNT_CFD = quint32(lround(laser->N_CFD_to_send[pmN]));
+                    AddressSpace->PM[pmN].Counters[i].CNT_TRG = quint32(lround(laser->N_TRG_to_send[pmN]));
                 }
     }
 
@@ -273,14 +288,14 @@ private slots:
     }
 
     bool HDMIlinks_ok(Side sd){
-        for(quint8 i = 0; i < 10; ++i)
+        for(quint8 i = 0; i < 10; ++ i)
             if(((sd == A) ? AddressSpace->PM_LINK_A[i] : AddressSpace->PM_LINK_C[i]) == Bad_link)
                 return false;
         return true;
     }
 
     void write_to_avail_PMs(quint32 data, quint16 address){
-        for(quint8 i=0; i <= 20; ++i){
+        for(quint8 i = 0; i <= 20; ++ i){
             if(bd->contains_register(0x200*(i + 1))){
                 (*AddressSpace)[address + 0x200 * (i + 1)] = data;
             }
